@@ -71,14 +71,14 @@ const Navbar = () => {
 
           <ul
             className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in bg-black ${
-              open ? "top-12 " : "top-[-490px]"
+              open ? "top-16 " : "top-[-490px]"
             }`}
           >
             {Links.map((link) => (
               <li key={link.name} className="md:ml-8 text-[16px] md:my-0 my-7">
-                <p className="text-white duration-400  hover:bg-gradient-to-r from-pink-500 via-pink-600 to-purple-500 hover:bg-clip-text hover:text-transparent font-poppins font-semibold cursor-pointer">
+                <a className="text-white duration-400  hover:bg-gradient-to-r from-pink-500 via-pink-600 to-purple-500 hover:bg-clip-text hover:text-transparent font-poppins font-semibold cursor-pointer">
                   {link.name}
-                </p>
+                </a>
               </li>
             ))}
           </ul>
