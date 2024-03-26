@@ -1,5 +1,4 @@
-"use client";
-
+import { Hero } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Intro from "@/components/Intro";
@@ -11,17 +10,17 @@ import React from "react";
 
 const page = () => {
   return (
-    <>
-      <div className="flex flex-col bg-black min-h-screen">
-        <Navbar />
+    <main>
+      <Navbar />
+      <div className="flex flex-col bg-black min-h-screen mt-16">
+        <Hero />
         <Intro />
-
         <AR />
         <VR />
         <Work />
         <Domains />
       </div>
-    </>
+    </main>
   );
 };
 
