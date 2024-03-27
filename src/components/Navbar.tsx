@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Navbar = () => {
@@ -13,19 +14,21 @@ const Navbar = () => {
       <div className="w-full fixed top-0 left-0">
         <div className="md:flex items-center justify-between bg-black py-4 md:px-10 px-7">
           <div className="flex items-center font-sans">
-            <img
+            <Image
+              width={1000}
+              height={200}
               className="w-20 h-auto mr-2 cursor-pointer"
               src="/logo.png"
               alt="Centre of Metaverse"
             />
             <div className="text-white text-xs font-normal tracking-normal">
               <div>
-                <p className="uppercase relative inline-block shrink-0 text-[0.58rem] ">
+                <p className="uppercase relative inline-block shrink-0 text-[0.68rem] ">
                   Centre of
                 </p>
               </div>
               <div>
-                <p className="uppercase relative text-[0.78rem] inline-block shrink-0">
+                <p className="uppercase relative text-[0.88rem] inline-block shrink-0 font-semibold ">
                   metaverse
                 </p>
               </div>
@@ -75,7 +78,7 @@ const Navbar = () => {
             }`}
           >
             {Links.map((link) => (
-              <li key={link.name} className="md:ml-8 text-[16px] md:my-0 my-7">
+              <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7">
                 <a className="text-white duration-400  hover:bg-gradient-to-r from-pink-500 via-pink-600 to-purple-500 hover:bg-clip-text hover:text-transparent font-poppins font-semibold cursor-pointer">
                   {link.name}
                 </a>
