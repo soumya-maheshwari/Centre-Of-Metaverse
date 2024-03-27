@@ -7,4 +7,5 @@
 @tailwind utilities;
 html {
   font-size: 18;
+  scroll-behavior: smooth;
 }
