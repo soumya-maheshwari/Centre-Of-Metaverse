@@ -1,4 +1,4 @@
-import { Hero } from "@/components";
+import { Hero, Projects } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Intro from "@/components/Intro";
@@ -11,7 +11,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <main>
+    <main className="text-white">
       <Navbar />
       <div className="flex flex-col bg-black min-h-screen mt-16">
         <Hero />
@@ -21,6 +21,7 @@ const page = () => {
         <Work />
         <Domains />
         <TechStack />
+        <Projects/>
       </div>
     </main>
   );
