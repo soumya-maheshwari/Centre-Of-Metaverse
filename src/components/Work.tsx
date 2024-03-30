@@ -16,12 +16,12 @@ const Work = () => {
                 alt="Image 1"
                 className="w-20 h-20 rounded-full mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-white uppercase">
+              <h3 className="text-2xl font-semibold mb-2 text-white uppercase font-futura leading-5">
                 dream
               </h3>
             </div>
 
-            <p className="text-gray-300 text-md mt-5">
+            <p className="text-gray-300 mt-5 font-work-sans text-xl">
               At the Centre Of Metaverse, we start with a dream—believing in
               imagination's power to shape new worlds. Our visionaries create
               immersive experiences, transporting you to places you've only
@@ -42,11 +42,11 @@ const Work = () => {
                 alt="Image 1"
                 className="w-20 h-20 rounded-full mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-white uppercase">
+              <h3 className="text-lg font-semibold mb-2 text-white uppercase font-futura">
                 design
               </h3>
             </div>
-            <p className="text-gray-300 text-md mt-5">
+            <p className="text-gray-300 mt-5 font-work-sans text-xl">
               Design blends creativity with functionality, sparking the magic of
               the virtual world. We're devoted to crafting captivating,
               user-friendly experiences. Our skilled designers meticulously
@@ -67,11 +67,11 @@ const Work = () => {
                 alt="Image 1"
                 className="w-20 h-20 rounded-full mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-white uppercase">
+              <h3 className="text-lg font-semibold mb-2 text-white uppercase font-futura">
                 develop
               </h3>
             </div>
-            <p className="text-gray-300 text-md mt-5">
+            <p className="text-gray-300 mt-5 font-work-sans text-xl">
               Our developers are the Metaverse architects, constructing digital
               foundations to realize our dreams. They code, optimize
               performance, and ensure seamless experiences. Development turns

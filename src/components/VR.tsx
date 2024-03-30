@@ -7,8 +7,10 @@ const VR = () => {
   return (
     <div className="flex mx-auto w-[80%] flex-col md:flex-row items-center justify-center md:justify-between mt-6">
       <div className="md:w-1/2 p-4">
-        <h2 className="text-2xl font-bold text-white">Virtual Reality .</h2>
-        <p className="mt-2 text-white max-w-xl">
+        <h2 className="text-2xl font-bold text-white font-futura">
+          Virtual Reality .
+        </h2>
+        <p className="mt-2 text-white max-w-xl font-work-sans text-xl">
           Virtual Reality (VR) is pure immersion! It whisks you away from
           reality into mind-blowing digital realms. With a headset, you're
           transported to thrilling adventures, lifelike simulations, and
