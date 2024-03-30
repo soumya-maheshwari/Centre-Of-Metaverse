@@ -1,3 +1,5 @@
+'use client'
+import Spline from "@splinetool/react-spline";
 import Image from "next/image";
 import React from "react";
 
@@ -5,13 +7,7 @@ const AR = () => {
   return (
     <div className="flex mx-auto w-[80%] flex-col md:flex-row items-center justify-center md:justify-between mt-6">
       <div className="md:w-1/2 p-4 ar-container">
-        <Image
-          width={1000}
-          height={300}
-          src="/image.png"
-          alt="Sample"
-          className="w-96 h-auto ar-image"
-        />
+      <Spline scene="https://prod.spline.design/4aTmo1PUk7ZZP4uf/scene.splinecode" style={{width:480,height:480}} />
       </div>
       <div className="md:w-1/2 p-4">
         <h2 className="text-2xl font-bold text-white font-futura">

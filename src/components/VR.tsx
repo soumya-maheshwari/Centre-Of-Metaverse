@@ -1,3 +1,5 @@
+"use client";
+import Spline from "@splinetool/react-spline";
 import Image from "next/image";
 import React from "react";
 
@@ -15,13 +17,10 @@ const VR = () => {
           breathtaking experiences that feel unbelievably real!
         </p>
       </div>
-      <div className="md:w-1/2 ar-container">
-        <Image
-          width={1000}
-          height={300}
-          src="/morphosis.png"
-          alt="Sample"
-          className="h-auto ar-image"
+      <div className="md:w-1/2 flex md:justify-end">
+        <Spline
+          scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
+          style={{ width: 480, height: 480 }}
         />
       </div>
     </div>
