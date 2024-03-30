@@ -31,11 +31,9 @@ const TechStack = () => {
         <div className="md:w-1/2 p-4">
           <p className="mt-2 text-white text-md font-work-sans text-base">
             We utilize a diverse range of cutting-edge technologies to push the
-            boundaries of creativity and innovation. Our tech stack includes
-            powerful tools such as Blender for immersive 3D modeling, C++ for
-            robust programming, Figma for collaborative design, Unity and Unreal
-            Engine for crafting interactive experiences, C# for versatile
-            development, and Oculus for immersive VR experiences.
+            boundaries of creativity and innovation. let's embark on a thrilling
+            adventure into the world of technology and creativity. Stay
+            connected for more thrilling developments!
           </p>
         </div>
 
