@@ -3,7 +3,10 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <div className="flex mx-auto w-[90%] flex-col md:flex-row items-center justify-center md:justify-between mt-16">
+    <div
+      className="flex mx-auto w-[90%] flex-col md:flex-row items-center justify-center md:justify-between mt-16"
+      id="explore"
+    >
       <div className="md:w-1/2 p-4">
         <h2 className="text-2xl font-bold text-white font-futura">
           What is AR/VR .
