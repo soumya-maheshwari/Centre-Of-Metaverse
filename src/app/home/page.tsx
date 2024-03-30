@@ -1,6 +1,7 @@
 import { Hero, Projects } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
+import Faculty from "@/components/Faculty";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import RotatingComponent from "@/components/Rotation";
@@ -21,7 +22,8 @@ const page = () => {
         <Work />
         <Domains />
         <TechStack />
-        <Projects/>
+        <Projects />
+        <Faculty />
       </div>
     </main>
   );

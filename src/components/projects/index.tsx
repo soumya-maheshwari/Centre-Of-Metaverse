@@ -8,7 +8,10 @@ import Image from "next/image";
 export const Projects = () => {
   return (
     <section className="overflow-hidden mt-12">
-      <h1 className="font-futura text-5xl text-white my-24 ml-36">Projects</h1>
+      <div className="w-[90%] mx-auto">
+        <h1 className="font-futura text-5xl mb-4 text-white">Projects</h1>
+      </div>
+
       {/* panorema effect slides */}
       <Swiper
         slidesPerView={2.5}
@@ -20,7 +23,7 @@ export const Projects = () => {
         slideToClickedSlide
       >
         {projects.map((project, index) => (
-          <SwiperSlide key={index} >
+          <SwiperSlide key={index}>
             <div>
               <Image
                 width={560}

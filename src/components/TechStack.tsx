@@ -24,11 +24,11 @@ const TechStack = () => {
 
   return (
     <div className="flex mx-auto w-[90%] flex-col mt-12">
-      <h1 className="text-4xl font-bold text-white mb-6 font-futura">
-        Techstack
-      </h1>
-      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between overflow-hidden relative gap-x-10">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between overflow-hidden  gap-x-10">
         <div className="md:w-1/2 p-4">
+          <h1 className="text-4xl font-bold text-white mb-6 font-futura">
+            Techstack
+          </h1>
           <p className="mt-2 text-white text-md font-work-sans text-base">
             We utilize a diverse range of cutting-edge technologies to push the
             boundaries of creativity and innovation. let's embark on a thrilling
