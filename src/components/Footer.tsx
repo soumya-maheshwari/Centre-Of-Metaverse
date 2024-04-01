@@ -32,23 +32,23 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/insta.svg"
                 alt="Insta"
                 width={20}
                 height={20}
-                className="w-12 icon"
+                className="w-11 icon"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Image
-                src="/facebook.svg"
+                src="/FaceBook.svg"
                 alt="Facebook"
                 width={20}
                 height={20}
-                className="w-12 icon"
+                className="w-11 icon"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -57,16 +57,16 @@ const Footer = () => {
                 alt="Twitter"
                 width={20}
                 height={20}
-                className="w-12 icon"
+                className="w-11 icon"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Image
-                src="/mail.svg"
+                src="/Mail.svg"
                 alt="Mail"
                 width={20}
                 height={20}
-                className="w-12 icon"
+                className="w-11 icon"
               />
             </a>
           </div>
