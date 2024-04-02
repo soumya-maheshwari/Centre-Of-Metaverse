@@ -1,4 +1,4 @@
-import { Hero } from "@/components";
+import { Hero, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Intro from "@/components/Intro";
@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import RotatingComponent from "@/components/Rotation";
 import TechStack from "@/components/TechStack";
 import VR from "@/components/VR";
-import Work from "@/components/Work";
 import React from "react";
 
 const page = () => {
