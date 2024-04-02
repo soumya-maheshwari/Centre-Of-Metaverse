@@ -4,6 +4,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 export const Projects = () => {
   return (
@@ -14,13 +17,15 @@ export const Projects = () => {
 
       {/* panorema effect slides */}
       <Swiper
+        modules={[Autoplay, Navigation]}
         slidesPerView={2.5}
-        autoplay
+        autoplay={{ delay: 2000 }}
         centeredSlides
         className="rotate-[-3deg] w-[101%]"
         loop
         grabCursor
         slideToClickedSlide
+        navigation
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
@@ -30,7 +35,7 @@ export const Projects = () => {
                 height={280}
                 src={project.image}
                 alt={project.name}
-                className="rounded-2xl"
+                className="rounded-2xl m-4"
               />
             </div>
           </SwiperSlide>

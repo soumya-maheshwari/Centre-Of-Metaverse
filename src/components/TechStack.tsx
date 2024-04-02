@@ -38,7 +38,7 @@ const TechStack = () => {
         </div>
 
         <div className="md:w-1/2 p-4">
-          <div className=" flex flex-col gap-6 border border-white rounded-[20px] p-4 overflow-hidden">
+          <div className=" flex flex-col gap-4 border border-white rounded-[20px] p-4 overflow-hidden">
             {/* row 1 */}
             <motion.div
               className="flex px-1 py-2"
@@ -46,7 +46,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 10,
+                  duration: 4,
                   repeat: Infinity,
                 },
               }}
@@ -71,7 +71,7 @@ const TechStack = () => {
                 x: ["0%", "-100%"],
                 transition: {
                   ease: "linear",
-                  duration: 10,
+                  duration: 4,
                   repeat: Infinity,
                 },
               }}
@@ -96,7 +96,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 10,
+                  duration: 4,
                   repeat: Infinity,
                 },
               }}
