@@ -9,11 +9,30 @@ import {
 import { WorkCard } from "@/type";
 import { Card } from "./card";
 import Image from "next/image";
+import Spline from "@splinetool/react-spline";
 
 const cardsData: WorkCard[] = [
   {
     title: "Dream",
-    desc: "We help you dream big and achieve your goals. We provide you with the best tools and resources to help you succeed.",
+    desc: "At the Centre Of Metaverse, we start with a dream—believing in imagination's power to shape new worlds. Our visionaries create immersive experiences, transporting you to places you've only dreamed of. Dream big because in AR/VR, possibilities are limitless.",
+    img: {
+      is3D: true,
+      src: "https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
+    },
+    thumb: "/dream.svg",
+  },
+  {
+    title: "Dream",
+    desc: "At the Centre Of Metaverse, we start with a dream—believing in imagination's power to shape new worlds. Our visionaries create immersive experiences, transporting you to places you've only dreamed of. Dream big because in AR/VR, possibilities are limitless.",
+    img: {
+      is3D: true,
+      src: "https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
+    },
+    thumb: "/dream.svg",
+  },
+  {
+    title: "Dream",
+    desc: "At the Centre Of Metaverse, we start with a dream—believing in imagination's power to shape new worlds. Our visionaries create immersive experiences, transporting you to places you've only dreamed of. Dream big because in AR/VR, possibilities are limitless.",
     img: {
       is3D: true,
       src: "https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
@@ -42,15 +61,11 @@ export const Work = () => {
               </span>
               <br /> we do
             </h1>
-            {cardsData.map(({thumb,desc,img,title}, index) => (
-              <div className="flex flex-col items-center justify-center w-64 h-64 bg-[#090909] rounded-lg shadow-lg">
-              <div>
-                  <Image src={thumb} alt={title} width={192} height={192} className="rounded-xl" />
-                  <h2 className="text-white font-futura text-5xl mt-4 uppercase">{title}</h2>
-                  <p className="text-white font-futura text-2xl mt-4">{desc}</p>
-              </div>
-          </div>
-            ))}
+            <div className="flex gap-4">
+              {cardsData.map((card, index) => (
+                <Card key={index} {...card} />
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
