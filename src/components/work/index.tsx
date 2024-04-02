@@ -46,14 +46,15 @@ export const Work = () => {
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
+
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0", "-140%"]);
 
   return (
     <section>
       <div ref={scrollRef} className="h-[120rem] relative">
-        <div className="sticky overflow-hidden h-screen top-0 z-0">
+        <div className="sticky overflow-hidden h-screen top-0 z-0 pt-20">
           <motion.div style={{ x }} className="h-screen w-full flex">
             <h1 className="text-white font-futura text-5xl m-16 mx-32">
               <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
