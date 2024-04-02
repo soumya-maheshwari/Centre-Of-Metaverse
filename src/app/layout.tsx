@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -16,6 +16,8 @@ const futuraMaxiBold = localFont({
   variable: "--font-futura-maxi-bold",
 });
 
+const worksans= Work_Sans({subsets:["latin"],display:"swap",variable:"--font-worksans"});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${futuraMaxiBold.variable}`}>
+      <body className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable}`}>
         {children}
       </body>
     </html>
