@@ -17,7 +17,7 @@ const config: Config = {
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         "work-sans": ["Work Sans", "sans-serif"],
-        futura:['var(--font-futura-maxi-bold)', 'sans-serif'],
+        futura: ["var(--font-futura-maxi-bold)", "sans-serif"],
       },
     },
   },
