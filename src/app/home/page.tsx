@@ -1,4 +1,4 @@
-import { Hero, Work, Projects } from "@/components";
+import { Hero,  Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Faculty from "@/components/Faculty";
