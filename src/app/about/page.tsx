@@ -1,11 +1,10 @@
-import { Hero, Projects } from "@/components";
+import { Hero, Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import TechStack from "@/components/TechStack";
 import VR from "@/components/VR";
-import Work from "@/components/Work";
 import React from "react";
 
 const page = () => {
