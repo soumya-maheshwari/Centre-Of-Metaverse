@@ -35,3 +35,10 @@ html {
 .swiper-button-next {
   color: white !important;
 }
+
+@media screen and (max-width: 640px) {
+  .spline-scene {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
