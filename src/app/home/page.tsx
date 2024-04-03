@@ -14,7 +14,7 @@ const page = () => {
   return (
     <main className="text-white">
       <Navbar />
-      <div className="flex flex-col bg-black min-h-screen mt-16">
+      <div className="flex flex-col bg-black min-h-screen mt-16 overflow-x-hidden">
         <Hero />
         <Intro />
         <AR />
