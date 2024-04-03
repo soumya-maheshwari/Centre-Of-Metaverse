@@ -12,8 +12,12 @@ export const Projects = () => {
   return (
     <section className="mt-12 overflow-hidden">
       <div className="w-[90%] mx-auto">
-        <h1 className="font-futura text-5xl mb-4 text-white">Projects</h1>
+        <h1 className="font-futura text-4xl mb-8 text-white font-bold">
+          Projects
+        </h1>
       </div>
+
+      <h1 className=" font-bold text-white mb-6 "></h1>
 
       <Swiper
         modules={[Autoplay, Navigation]}
@@ -23,6 +27,7 @@ export const Projects = () => {
         className="rotate-[-3deg] overflow-x-hidden w-[101%]"
         loop
         grabCursor
+        navigation
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>

@@ -29,7 +29,7 @@ const TechStack = () => {
           <h1 className="text-4xl font-bold text-white mb-6 font-futura">
             Techstack
           </h1>
-          <p className="mt-2 text-white text-md font-work-sans text-base">
+          <p className="mt-2  text-white  font-work-sans text-xl ">
             We utilize a diverse range of cutting-edge technologies to push the
             boundaries of creativity and innovation. let's embark on a thrilling
             adventure into the world of technology and creativity. Stay

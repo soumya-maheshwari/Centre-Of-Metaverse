@@ -46,3 +46,9 @@ img {
   -ms-user-select: none;
   -ms-user-drag: none;
 }
+@media screen and (max-width: 640px) {
+  .spline-scene {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}

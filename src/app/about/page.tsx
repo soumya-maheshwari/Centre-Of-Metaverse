@@ -1,6 +1,7 @@
 import { Hero, Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
+import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import TechStack from "@/components/TechStack";
@@ -13,11 +14,11 @@ const page = () => {
       <Navbar />
       <div className="flex flex-col bg-black min-h-screen mt-16">
         <Intro />
-        <AR />
-        <VR />
+        {/* <AR />
+        <VR /> */}
         <Work />
-        <Domains />
         <TechStack />
+        <Footer />
       </div>
     </main>
   );

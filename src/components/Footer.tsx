@@ -42,16 +42,12 @@ const Footer = () => {
                 className="w-11 icon"
               />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/FaceBook.svg"
-                alt="Facebook"
-                width={20}
-                height={20}
-                className="w-11 icon"
-              />
-            </a>
-            <a href="mailto:centreofmetaverse@gmail.com" target="_blank" rel="noopener noreferrer">
+
+            <a
+              href="mailto:centreofmetaverse@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/Mail.svg"
                 alt="Mail"
