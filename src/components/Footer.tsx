@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/centre.of.metaverse" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/insta.svg"
                 alt="Insta"
@@ -51,16 +51,7 @@ const Footer = () => {
                 className="w-11 icon"
               />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/twitter.svg"
-                alt="Twitter"
-                width={20}
-                height={20}
-                className="w-11 icon"
-              />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:centreofmetaverse@gmail.com" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/Mail.svg"
                 alt="Mail"
