@@ -11,11 +11,11 @@ const AR = () => {
           style={{ width: "100%", maxWidth: 490, height: 480 }}
         />
       </div>
-      <div className="md:w-1/2 p-4">
-        <h2 className="text-2xl font-bold text-white font-futura">
-          Augmented Reality .
+      <div className="p-4 flex justify-end flex-col">
+        <h2 className="text-5xl font-bold text-white font-futura">
+          Augmented <br/>Reality
         </h2>
-        <p className="mt-2 text-white  font-work-sans text-xl">
+        <p className="mt-2 text-white  font-work-sans text-xl max-w-96">
           Augmented Reality (AR) is like magic! It mixes the real world with
           awesome digital elements, enhancing your view with cool info, videos,
           or games right in front of you. It's fun, futuristic, and super
