@@ -1,6 +1,7 @@
 import { Hero, Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
+import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import TechStack from "@/components/TechStack";
@@ -18,6 +19,7 @@ const page = () => {
         <Work />
         <Domains />
         <TechStack />
+        <Footer />
       </div>
     </main>
   );

@@ -1,4 +1,4 @@
-import { Hero,  Projects, Work } from "@/components";
+import { Hero, Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Faculty from "@/components/Faculty";
@@ -20,7 +20,7 @@ const page = () => {
         <AR />
         <VR />
         <Work />
-        <Domains />
+        {/* <Domains /> */}
         <TechStack />
         <Projects />
         <Faculty />
