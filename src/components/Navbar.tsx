@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const Navbar = () => {
+const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
   let Links = [
     { name: "Home", link: "/" },
@@ -14,15 +14,20 @@ const Navbar = () => {
   ];
   return (
     <motion.nav
-      className="w-full fixed top-0 left-0 border-b border-gray-900 h-[72px] backdrop-filter backdrop-blur-lg bg-opacity-0  "
-      style={{ zIndex: 1000 }}
+      className={`w-full fixed top-0 left-0 border-b border-gray-900 h-[72px] backdrop-filter backdrop-blur-lg bg-opacity-0  ${
+        isDark ?? "bg-black"
+      }`}
+      style={{
+        zIndex: 1000,
+        backgroundColor: isDark ? "#000000" : "transparent",
+      }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
-        <div className="flex items-center font-sans">
-          <Link href="/">
+        <Link href="/">
+          <div className="flex items-center font-sans">
             <Image
               width={1000}
               height={200}
@@ -30,21 +35,21 @@ const Navbar = () => {
               src="/logo.png"
               alt="Centre of Metaverse"
             />
-          </Link>
 
-          <div className="text-white text-xs font-normal tracking-normal font-futura">
-            <div>
-              <p className="uppercase relative inline-block shrink-0 text-[0.68rem] ">
-                Centre of
-              </p>
-            </div>
-            <div>
-              <p className="uppercase relative text-[0.88rem] inline-block shrink-0 font-semibold ">
-                metaverse
-              </p>
+            <div className="text-white text-xs font-normal tracking-normal font-futura">
+              <div>
+                <p className="uppercase relative inline-block shrink-0 text-[0.68rem] ">
+                  Centre of
+                </p>
+              </div>
+              <div>
+                <p className="uppercase relative text-[0.88rem] inline-block shrink-0 font-semibold ">
+                  metaverse
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         <div
           onClick={() => setOpen(!open)}
@@ -89,7 +94,10 @@ const Navbar = () => {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7 cursor-enlarge">
+            <li
+              key={link.name}
+              className="md:ml-8 text-[18px] md:my-0 my-7 cursor-enlarge"
+            >
               <Link href={link.link}>
                 <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5">
                   {link.name}
