@@ -24,7 +24,6 @@ export const Projects = () => {
         loop
         grabCursor
         slideToClickedSlide
-        navigation
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>

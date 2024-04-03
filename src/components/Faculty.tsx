@@ -22,7 +22,7 @@ const Faculty = () => {
       <div className="flex flex-wrap justify-between">
         {faculties.map((faculty) => (
           <div key={faculty.id} className="w-[96%] mx-auto md:w-1/2 p-4">
-            <div className="rounded-lg p-20 bg-[#2C2C2C33]">
+            <div className="rounded-3xl p-20 bg-[#2C2C2C33]">
               <img
                 className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-4 rounded-full"
                 src={faculty.photoUrl}
