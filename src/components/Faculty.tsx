@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Faculty = () => {
@@ -17,7 +18,15 @@ const Faculty = () => {
   ];
 
   return (
-    <div className="w-[90%] mx-auto mt-20">
+    <div className="w-[90%] mx-auto mt-20 relative">
+      <Image
+        src="/lamp1.png"
+        alt=""
+        width={500}
+        height={500}
+        className="absolute -top-12 -left-36 z-0"
+      />
+
       <h1 className="font-futura text-4xl mb-6 text-white">Faculty</h1>
       <div className="flex flex-wrap justify-between">
         {faculties.map((faculty) => (

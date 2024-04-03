@@ -35,3 +35,14 @@ html {
 .swiper-button-next {
   color: white !important;
 }
+
+/* STOP IMAGE SELECT OR DRAG */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -moz-user-drag: none;
+  -ms-user-select: none;
+  -ms-user-drag: none;
+}
