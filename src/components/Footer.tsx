@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <footer className="w-full left-0 bg-[#0C0118] mt-12">
-        <div className="md:flex items-center justify-between py-4 md:px-10 px-7">
+        <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
           <div className="flex items-center font-sans">
             <Link href="/">
               <Image
@@ -18,7 +18,7 @@ const Footer = () => {
               />
             </Link>
 
-            <div className="text-white text-xs font-normal tracking-normal">
+            <div className="text-white text-xs font-normal tracking-normal font-futura">
               <div>
                 <p className="uppercase relative inline-block shrink-0 text-[0.68rem]">
                   Centre of
