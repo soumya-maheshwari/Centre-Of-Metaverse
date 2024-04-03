@@ -8,10 +8,10 @@ const Intro = () => {
       id="explore"
     >
       <div className="md:w-1/2 p-4">
-        <h2 className="text-5xl font-bold text-white font-futura">
+        <h2 className="text-4xl font-bold text-white font-futura">
           What is AR/VR
         </h2>
-        <p className="mt-2 text-xl text-white font-work-sans max-w-96">
+        <p className="mt-2 text-xl text-white font-work-sans md:max-w-96">
           AR adds digital wonder to reality while VR transports you to new
           realms, turning you from a mere spectator into an active explorer. AR
           enhances reality; VR crafts new worlds, each offering captivating

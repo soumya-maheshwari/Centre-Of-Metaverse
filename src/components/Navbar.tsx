@@ -13,7 +13,10 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className="w-full fixed top-0 left-0 border-b border-gray-900 h-[72px]">
+      <div
+        className="w-full fixed top-0 left-0 border-b border-gray-900 h-[72px] bg-black"
+        style={{ zIndex: 1000 }}
+      >
         <div className="md:flex items-center justify-between bg-black py-4 md:px-28 px-7">
           <div className="flex items-center font-sans">
             <Link href="/">

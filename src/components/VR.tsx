@@ -6,10 +6,10 @@ const VR = () => {
   return (
     <div className="flex mx-auto w-[90%] flex-col md:flex-row items-center justify-center md:justify-between mt-6">
       <div className="md:w-1/2 p-4">
-        <h2 className="font-bold text-white font-futura text-5xl">
+        <h2 className="font-bold text-white text-3xl font-futura sm:text-4xl">
           Virtual Reality
         </h2>
-        <p className="mt-2 text-white font-work-sans text-xl max-w-96">
+        <p className="mt-2 text-white font-work-sans text-xl md:max-w-96">
           Virtual Reality (VR) is pure immersion! It whisks you away from
           reality into mind-blowing digital realms. With a headset, you're
           transported to thrilling adventures, lifelike simulations, and
@@ -19,7 +19,7 @@ const VR = () => {
       <div className="md:w-1/2 flex md:justify-end mx-auto">
         <Spline
           scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
-          style={{ width: "100%", maxWidth: 480, height: 480 }}
+          style={{ width: "100%", maxWidth: "auto", height: 480 }}
         />
       </div>
     </div>
