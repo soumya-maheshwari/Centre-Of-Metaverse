@@ -10,22 +10,19 @@ import "swiper/css/autoplay";
 
 export const Projects = () => {
   return (
-    <section className="overflow-hidden mt-12">
+    <section className="mt-12">
       <div className="w-[90%] mx-auto">
         <h1 className="font-futura text-5xl mb-4 text-white">Projects</h1>
       </div>
 
-      {/* panorema effect slides */}
       <Swiper
         modules={[Autoplay, Navigation]}
         slidesPerView={2.5}
         autoplay={{ delay: 2000 }}
         centeredSlides
-        className="rotate-[-3deg] w-[101%]"
+        className="rotate-[-3deg] overflow-x-hidden w-[101%]"
         loop
         grabCursor
-        slideToClickedSlide
-        navigation
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
