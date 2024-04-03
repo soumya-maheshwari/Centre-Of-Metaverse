@@ -14,14 +14,13 @@ const Navbar = () => {
   ];
   return (
     <motion.nav
-      className="w-full fixed top-0 left-0 border-b border-gray-900 h-[72px] bg-black"
+      className="w-full fixed top-0 left-0 border-b border-gray-900 h-[72px] backdrop-filter backdrop-blur-lg bg-opacity-0  "
       style={{ zIndex: 1000 }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      
     >
-      <div className="md:flex items-center justify-between bg-black py-4 md:px-28 px-7">
+      <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
         <div className="flex items-center font-sans">
           <Link href="/">
             <Image
