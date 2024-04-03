@@ -50,11 +50,17 @@ export const Work = () => {
 
   return (
     <section>
-      <div ref={scrollRef} className="h-[120rem] relative hidden md:block">
+      <h1 className="text-white font-futura text-5xl text-nowrap md:hidden">
+        <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
+          What
+        </span>
+        <br /> we do
+      </h1>
+      <div ref={scrollRef} className="h-[120rem] relative hidden  md:block">
         <div className="sticky overflow-hidden h-screen top-0 z-0 pt-12">
           <motion.div
             style={{ x }}
-            className="h-screen w-full flex items-center"
+            className="h-screen w-full flex items-center flex-col md:flex-row"
           >
             <h1 className="text-white font-futura text-5xl m-16 mx-32 text-nowrap">
               <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
