@@ -23,7 +23,6 @@ export const Projects = () => {
         className="rotate-[-3deg] overflow-x-hidden w-[101%]"
         loop
         grabCursor
-        slideToClickedSlide
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
