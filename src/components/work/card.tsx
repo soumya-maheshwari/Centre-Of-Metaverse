@@ -8,7 +8,7 @@ export interface Props extends WorkCard {}
 
 export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
   return (
-    <div className="flex bg-[#090909] shadow-lg p-12 rounded-3xl items-center justify-between gap-20 md:h-[82vh] flex-col md:flex-row w-[90%] mx-auto">
+    <div className="flex bg-[#090909] shadow-lg p-2 md:p-12 rounded-3xl items-center justify-between gap-20 md:h-[82vh] flex-col md:flex-row w-[90%] mx-auto">
       <div className="md:min-w-[22rem]">
         <Image
           src={thumb}
@@ -22,9 +22,15 @@ export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
         </h2>
         <p className="text-white font-work-sans text-xl mt-4">{desc}</p>
       </div>
-      <div className="md:min-w-[30rem]">
+      <div className="sm:min-w-[30rem]">
         {img.is3D ? (
-          <Spline scene={img.src} style={{ width: 480, height: 480 }} />
+          <div className="">
+            <Spline
+              scene={img.src}
+              style={{ width: "480px", height: "480px" }}
+              className="spline-scene"
+            />
+          </div>
         ) : (
           <Image src={img.src} alt={title} width={1024} height={580} />
         )}

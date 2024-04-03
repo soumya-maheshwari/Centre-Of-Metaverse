@@ -85,7 +85,7 @@ const Navbar = () => {
             {Links.map((link) => (
               <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7">
                 <Link href={link.link}>
-                  <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text hover:text-transparent font-poppins font-semibold cursor-pointer leading-5">
+                  <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold cursor-pointer leading-5">
                     {link.name}
                   </div>
                 </Link>
