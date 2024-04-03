@@ -18,7 +18,8 @@ export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
           height={192}
           className="rounded-xl w-24 md:w-48"
         />
-        <motion.h2 className="text-white font-futura md:text-5xl mt-4 uppercase text-3xl"
+        <motion.h2
+          className="text-white font-futura md:text-5xl mt-4 uppercase text-3xl"
           initial={{ y: -50, opacity: 0 }}
           exit={{ y: -50, opacity: 0 }}
           transition={{ duration: 0.3 }}
@@ -26,14 +27,17 @@ export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
         >
           {title}
         </motion.h2>
-        <motion.p className="text-white font-work-sans text-xl mt-4"
+        <motion.p
+          className="text-white font-work-sans text-xl mt-4"
           initial={{ x: -150, opacity: 0 }}
           exit={{ x: -150, opacity: 0 }}
-          transition={{ duration: 0.4,delay:0.3 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           whileInView={{ x: 0, opacity: 1 }}
-        >{desc}</motion.p>
+        >
+          {desc}
+        </motion.p>
       </div>
-      <div className="sm:min-w-[30rem]">
+      <div className="sm:min-w-[30rem] cursor-fill">
         {img.is3D ? (
           <div className="">
             <Spline

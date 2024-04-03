@@ -38,7 +38,7 @@ const Intro = () => {
           width={1000}
           height={300}
           alt="headset"
-          className="w-[590px] mx-auto"
+          className="w-[590px] mx-auto cursor-fill"
         />
       </div>
     </div>

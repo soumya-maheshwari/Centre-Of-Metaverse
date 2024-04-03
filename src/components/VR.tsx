@@ -33,6 +33,7 @@ const VR = () => {
         <Spline
           scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
           style={{ width: "100%", maxWidth: "auto", height: 480 }}
+          className="cursor-fill"
         />
       </div>
     </div>

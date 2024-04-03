@@ -12,7 +12,7 @@ const Footer = () => {
               <Image
                 width={1000}
                 height={200}
-                className="w-20 h-auto mr-2 cursor-pointer"
+                className="w-20 h-auto mr-2"
                 src="/logo.png"
                 alt="Centre of Metaverse"
               />

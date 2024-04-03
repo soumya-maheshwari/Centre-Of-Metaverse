@@ -38,7 +38,7 @@ export const Hero = () => {
           width={800}
           height={600}
           // layout="responsive"
-          className="ease-in-out w-[16rem] h-auto"
+          className="ease-in-out w-[16rem] h-auto cursor-fill"
           initial={{ scale: 0.5, opacity: 0 , }}
           animate={{ scale: 1, opacity: 1, transition: { duration: 0.5, delay: 0.6}}}
           whileHover={{ scale: 1.2 , transition:{delay:0, duration:0.3}}}

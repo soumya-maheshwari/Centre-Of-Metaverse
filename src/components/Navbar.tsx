@@ -8,9 +8,9 @@ const Navbar = () => {
   let [open, setOpen] = useState(false);
   let Links = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
-    { name: "Contact Us", link: "/contact" },
-    { name: "Events", link: "/events" },
+    { name: "About", link: "#work" },
+    { name: "Contact Us", link: "mailto:centerofmetaverse@gmail.com" },
+    // { name: "Events", link: "/events" },
   ];
   return (
     <motion.nav
@@ -26,7 +26,7 @@ const Navbar = () => {
             <Image
               width={1000}
               height={200}
-              className="w-20 h-auto mr-2 cursor-pointer"
+              className="w-20 h-auto mr-2 "
               src="/logo.png"
               alt="Centre of Metaverse"
             />
@@ -48,7 +48,7 @@ const Navbar = () => {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden text-white"
+          className="text-3xl absolute right-8 top-6 md:hidden text-white"
         >
           {open ? (
             <svg
@@ -84,14 +84,14 @@ const Navbar = () => {
         </div>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in bg-black ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in  ${
             open ? "top-16 " : "top-[-490px]"
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7">
+            <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7 cursor-enlarge">
               <Link href={link.link}>
-                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold cursor-pointer leading-5">
+                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5">
                   {link.name}
                 </div>
               </Link>

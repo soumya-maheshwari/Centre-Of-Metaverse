@@ -1,4 +1,4 @@
-import { Hero, Projects, Work } from "@/components";
+import { Cursor, Hero, Projects, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Faculty from "@/components/Faculty";
@@ -12,21 +12,24 @@ import React from "react";
 
 const page = () => {
   return (
-    <main className="text-white">
-      <Navbar />
-      <div className="flex flex-col bg-black min-h-screen mt-16">
-        <Hero />
-        <Intro />
-        <AR />
-        <VR />
-        <Work />
-        {/* <Domains /> */}
-        <TechStack />
-        <Projects />
-        <Faculty />
-        <Footer />
-      </div>
-    </main>
+    <>
+      <main className="text-white">
+        <Navbar />
+        <div className="flex flex-col bg-black min-h-screen mt-16">
+          <Hero />
+          <Intro />
+          <AR />
+          <VR />
+          <Work />
+          {/* <Domains /> */}
+          <TechStack />
+          <Projects />
+          <Faculty />
+          <Footer />
+        </div>
+      </main>
+      <Cursor />
+    </>
   );
 };
 

@@ -24,10 +24,8 @@ export const Projects = () => {
         slidesPerView={2.5}
         autoplay={{ delay: 2000 }}
         centeredSlides
-        className="rotate-[-3deg] overflow-x-hidden w-[101%]"
+        className="rotate-[-3deg] overflow-x-hidden w-[101%] cursor-dragit"
         loop
-        grabCursor
-        navigation
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>

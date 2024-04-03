@@ -50,7 +50,7 @@ export const Work = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0", "-140%"]);
 
   return (
-    <section className="relative">
+    <section className="relative" id="work">
       <Image
         src="/lamp4.png"
         alt=""

@@ -10,6 +10,7 @@ const AR = () => {
         <Spline
           scene="https://prod.spline.design/4aTmo1PUk7ZZP4uf/scene.splinecode"
           style={{ width: "100%", maxWidth: 490, height: 480 }}
+          className="cursor-fill"
         />
       </div>
       <div className="p-4 flex justify-end flex-col">
