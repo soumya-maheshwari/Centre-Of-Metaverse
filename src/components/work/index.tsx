@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { WorkCard } from "@/type";
 import { Card } from "./card";
+import Image from "next/image";
 
 const cardsData: WorkCard[] = [
   {
@@ -49,7 +50,14 @@ export const Work = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0", "-140%"]);
 
   return (
-    <section>
+    <section className="relative" id="work">
+      <Image
+        src="/lamp4.png"
+        alt=""
+        width={700}
+        height={700}
+        className="absolute -top-16 left-0 z-0"
+      />
       <h1 className="text-white font-futura text-5xl text-nowrap md:hidden">
         <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
           What
