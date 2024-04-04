@@ -23,6 +23,16 @@ enum CursorType {
 }
 
 export const Cursor = () => {
+
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
+  }, []);
+
+
+
+
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -85,6 +95,10 @@ export const Cursor = () => {
   }, []);
 
   const animation = useAnimation();
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <motion.div
