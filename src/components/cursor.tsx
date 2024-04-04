@@ -28,6 +28,9 @@ export const Cursor = () => {
 
   useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
+    window.addEventListener("resize", () => {
+      setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
+    });
   }, []);
 
 
