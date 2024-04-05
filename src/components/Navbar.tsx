@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { physicsAnim } from '@/constants/index';
 
 const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5,...physicsAnim }}
     >
       <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
         <Link href="/">
@@ -89,7 +90,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
         </div>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in  ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in bg-black md:bg-transparent  ${
             open ? "top-16 " : "top-[-490px]"
           }`}
         >
@@ -105,6 +106,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
               </Link>
             </li>
           ))}
+          <Link href="/register" className="font-futura text-white bg-purple bg-gradient-to-br from-pink-500 to-sky-600 rounded-full px-4 py-2 mx-3">Register</Link>
         </ul>
       </div>
     </motion.nav>
