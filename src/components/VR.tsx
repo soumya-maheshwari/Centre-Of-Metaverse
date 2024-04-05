@@ -50,38 +50,29 @@ const VR = () => {
         </motion.p>
       </div>
       <div className="w-full sm:w-1/2 p-3 sm:p-0">
-        <div className="hidden sm:block">
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ ...physicsAnim }}
-            whileInView={{ y: 0, opacity: 1 }}
-          >
-            {windowWidth > 768 ? (
-              <Spline
-                scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
-                style={{ width: "100%", maxWidth: "auto", height: 540 }}
-                className="cursor-fill"
-              />
-            ) : (
-              <Image
-                src="/VR.png"
-                alt="VR"
-                width={500}
-                height={500}
-                className="w-[490px] mx-auto cursor-fill"
-              />
-            )}
-          </motion.div>
-        </div>
-        <div className="sm:hidden">
-          <img
-            src="morphosis.png"
-            alt="VR Experience"
-            style={{ width: "100%", maxWidth: "auto", height: "100%" }}
-          />
-        </div>
-      </div>{" "}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ ...physicsAnim }}
+          whileInView={{ y: 0, opacity: 1 }}
+        >
+          {windowWidth > 768 ? (
+            <Spline
+              scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
+              style={{ width: "100%", maxWidth: "auto", height: 540 }}
+              className="cursor-fill"
+            />
+          ) : (
+            <Image
+              src="/VR.png"
+              alt="VR"
+              width={500}
+              height={500}
+              className="w-[490px] mx-auto cursor-fill"
+            />
+          )}
+        </motion.div>
+      </div>
     </div>
   );
 };
