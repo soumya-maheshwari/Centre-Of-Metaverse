@@ -1,9 +1,7 @@
 export interface WorkCard {
     title: string;
     desc: string;
-    img: {
-        is3D: boolean;
-        src: string;
-    };
+    img: string;
+    splineUrl: string;
     thumb: string;
 }

@@ -16,28 +16,22 @@ const cardsData: WorkCard[] = [
   {
     title: "Dream",
     desc: "At the Centre Of Metaverse, we start with a dream—believing in imagination's power to shape new worlds. Our visionaries create immersive experiences, transporting you to places you've only dreamed of. Dream big because in AR/VR, possibilities are limitless.",
-    img: {
-      is3D: true,
-      src: "https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
-    },
+    img: "/dream.png",
+    splineUrl:"https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
     thumb: "/dream.svg",
   },
   {
     title: "Design",
     desc: "Design blends creativity with functionality, sparking the magic of the virtual world. We're devoted to crafting captivating, user-friendly experiences. Our skilled designers meticulously create dreamscapes, focusing on every detail, color, and interaction.",
-    img: {
-      is3D: true,
-      src: "https://prod.spline.design/IAStlOX6Wsvo3Un3/scene.splinecode",
-    },
+    img: "/design.png",
+    splineUrl:"https://prod.spline.design/IAStlOX6Wsvo3Un3/scene.splinecode",
     thumb: "/design.svg",
   },
   {
     title: "Develop",
     desc: "Our developers are the Metaverse architects, constructing digital foundations to realize our dreams. They code, optimize performance, and ensure seamless experiences. Development turns ideas into immersive AR/VR projects for everyone to enjoy.",
-    img: {
-      is3D: false,
-      src: "/develop.png",
-    },
+    img: "/develop.png",
+    splineUrl:"https://prod.spline.design/h2RZIQEEpGaBv4ZI/scene.splinecode",
     thumb: "/develop.svg",
   },
 ];
@@ -119,7 +113,7 @@ export const Work = () => {
               </h1>
               <div className="flex gap-4">
                 {cardsData.map((card, index) => (
-                  <Card key={index} {...card} />
+                  <Card key={index} {...card} isImg={false} />
                 ))}
               </div>
             </motion.div>
@@ -127,7 +121,7 @@ export const Work = () => {
         </div>
         <div className="flex gap-4 flex-col md:hidden ">
           {cardsData.map((card, index) => (
-            <Card key={index} {...card} />
+            <Card key={index} {...card} isImg />
           ))}
         </div>
         <div ref={ghostRef} className="ghost w-screen"></div>
