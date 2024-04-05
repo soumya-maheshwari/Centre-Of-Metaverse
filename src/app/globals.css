@@ -11,7 +11,7 @@ html {
   cursor: none;
 }
 
-a{
+a {
   cursor: none;
 }
 
@@ -56,4 +56,8 @@ img {
     width: 300px !important;
     height: 300px !important;
   }
+}
+
+* {
+  /* border: 0.4px solid white; */
 }
