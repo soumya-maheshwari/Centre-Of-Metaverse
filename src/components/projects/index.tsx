@@ -11,13 +11,11 @@ import "swiper/css/autoplay";
 export const Projects = () => {
   return (
     <section className="mt-12 overflow-hidden">
-      <div className="w-[90%] mx-auto">
-        <h1 className="font-futura text-4xl mb-8 text-white font-bold">
+      <div className="w-[94%] p-1 sm:p-4 mx-auto">
+        <h1 className="font-futura md:text-4xl text-3xl mb-8 text-white font-bold">
           Projects
         </h1>
       </div>
-
-      <h1 className=" font-bold text-white mb-6 "></h1>
 
       <Swiper
         modules={[Autoplay, Navigation]}

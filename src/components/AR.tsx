@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ResizeObserver from "resize-observer-polyfill";
 import Image from "next/image";
-import { physicsAnim } from '../constants/index';
+import { physicsAnim } from "../constants/index";
 
 const AR = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -28,10 +28,10 @@ const AR = () => {
   return (
     <div className="flex mx-auto w-[90%] md:w-[80%] flex-col-reverse md:flex-row items-center justify-center md:justify-between mt-6">
       <div className="md:w-1/2 justify-start">
-        <motion.div 
-         initial={{ y: 100, opacity: 0 }}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
           exit={{ y: 100, opacity: 0 }}
-          transition={{ duration: 0.3 ,...physicsAnim}}
+          transition={{ duration: 0.3, ...physicsAnim }}
           whileInView={{ y: 0, opacity: 1 }}
         >
           {windowWidth > 768 ? (
@@ -51,9 +51,9 @@ const AR = () => {
           )}
         </motion.div>
       </div>
-      <div className="p-4 flex justify-end flex-col">
+      <div className="w-full sm:w-1/2 p-4">
         <motion.h2
-          className="md:text-4xl text-3xl font-bold text-white font-futura whitespace-nowrap"
+          className="md:text-3xl text-xl text-white font-futura whitespace-nowrap"
           initial={{ y: -50, opacity: 0 }}
           exit={{ y: -50, opacity: 0 }}
           transition={{ duration: 0.3 }}
@@ -62,9 +62,9 @@ const AR = () => {
           Augmented Reality
         </motion.h2>
         <motion.p
-          className="mt-2  text-white  font-work-sans text-xl md:max-w-96"
-          initial={{ x: 150, opacity: 0 }}
-          exit={{ x: 150, opacity: 0 }}
+          className="mt-2 text-white  font-work-sans text-base sm:text-xl"
+          initial={{ x: 20, opacity: 0 }}
+          exit={{ x: 50, opacity: 0 }}
           transition={{ ...physicsAnim, delay: 0.3 }}
           whileInView={{ x: 0, opacity: 1 }}
         >
