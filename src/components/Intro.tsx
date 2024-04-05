@@ -2,6 +2,9 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { physicsAnim } from '@/constants/index';
+
+const MotionImage = motion(Image);
 
 const Intro = () => {
   return (
@@ -23,7 +26,7 @@ const Intro = () => {
         <motion.p className="mt-2 text-xl text-white font-work-sans md:max-w-96"
         initial={{ x: -150, opacity: 0 }}
         exit={{ x: -150, opacity: 0 }}
-        transition={{ duration: 0.4,delay:0.3 }}
+        transition={{ ...physicsAnim,delay:0.3 }}
         whileInView={{ x: 0, opacity: 1 }}
         >
           AR adds digital wonder to reality while VR transports you to new
@@ -33,12 +36,17 @@ const Intro = () => {
         </motion.p>
       </div>
       <div className="md:w-1/2 p-4">
-        <Image
+        <MotionImage
           src="/person_with_headset.png"
           width={1000}
           height={300}
           alt="headset"
           className="w-[590px] mx-auto cursor-fill"
+          initial={{y: 100, opacity: 0}}
+          exit={{y: 100, opacity: 0}}
+          transition={{...physicsAnim}}
+          whileInView={{y: 0, opacity: 1}}
+
         />
       </div>
     </div>

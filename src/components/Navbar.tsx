@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { physicsAnim } from '@/constants/index';
 
 const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5,...physicsAnim }}
     >
       <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
         <Link href="/">
