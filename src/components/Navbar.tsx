@@ -10,7 +10,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let Links = [
     { name: "Home", link: "/" },
     { name: "About", link: "#work" },
-    { name: "Contact Us", link: "mailto:centerofmetaverse@gmail.com" },
+    { name: "Contact Us", link: "#contact" },
     // { name: "Events", link: "/events" },
   ];
   return (

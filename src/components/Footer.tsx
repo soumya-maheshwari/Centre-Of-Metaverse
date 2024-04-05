@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="w-full left-0 bg-[#0C0118] mt-12">
+      <footer className="w-full left-0 bg-[#0C0118] mt-12" id="contact">
         <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
           <div className="flex items-center font-sans">
             <Link href="/">
@@ -33,7 +33,11 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <a href="https://www.instagram.com/centre.of.metaverse" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/centre.of.metaverse"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/insta.svg"
                 alt="Insta"
