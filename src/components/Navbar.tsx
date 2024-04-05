@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { physicsAnim } from '@/constants/index';
+import { physicsAnim } from "@/constants/index";
 
 const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5,...physicsAnim }}
+      transition={{ duration: 0.5, ...physicsAnim }}
     >
       <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
         <Link href="/">
@@ -106,7 +106,12 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
               </Link>
             </li>
           ))}
-          <Link href="/register" className="font-futura text-white bg-purple bg-gradient-to-br from-pink-500 to-sky-600 rounded-full px-4 py-2 mx-3">Register</Link>
+          <Link
+            href="/register"
+            className="font-futura text-black bg-purple bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] rounded-full px-4 py-2 mx-[-2px] md:mx-4"
+          >
+            Register
+          </Link>
         </ul>
       </div>
     </motion.nav>
