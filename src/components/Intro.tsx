@@ -21,7 +21,7 @@ const Intro = () => {
           What is AR/VR
         </motion.h2>
         <motion.p
-          className="mt-2 text-md sm:text-xl text-white font-work-sans"
+          className="mt-2 text-base sm:text-xl text-white font-work-sans"
           initial={{ x: -150, opacity: 0 }}
           exit={{ x: -150, opacity: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}

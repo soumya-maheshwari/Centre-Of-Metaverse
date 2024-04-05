@@ -20,12 +20,12 @@ const page = () => {
           <Intro />
           <AR />
           <VR />
-          {/* <Work /> */}
+          <Work />
           {/* <Domains /> */}
-          {/* <TechStack />
+          <TechStack />
           <Projects />
           <Faculty />
-          <Footer /> */}
+          <Footer />
         </div>
       </main>
       <Cursor />

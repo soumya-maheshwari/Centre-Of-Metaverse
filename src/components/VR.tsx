@@ -18,7 +18,7 @@ const VR = () => {
           Virtual Reality
         </motion.h2>
         <motion.p
-          className="mt-2 text-md sm:text-xl text-white font-work-sans"
+          className="mt-2 text-base sm:text-xl text-white font-work-sans"
           initial={{ x: -150, opacity: 0 }}
           exit={{ x: -150, opacity: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
@@ -31,12 +31,21 @@ const VR = () => {
         </motion.p>
       </div>
       <div className="w-full sm:w-1/2 p-3 sm:p-0">
-        <Spline
-          scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
-          style={{ width: "100%", maxWidth: "auto", height: 480 }}
-          className="cursor-fill"
-        />
-      </div>
+        <div className="hidden sm:block">
+          <Spline
+            scene="https://prod.spline.design/tN8T7GqMZDVvPCVU/scene.splinecode"
+            style={{ width: "100%", maxWidth: "auto", height: 480 }}
+            className="cursor-fill"
+          />
+        </div>
+        <div className="sm:hidden">
+          <img
+            src="morphosis.png"
+            alt="VR Experience"
+            style={{ width: "100%", maxWidth: "auto", height: "100%" }}
+          />
+        </div>
+      </div>{" "}
     </div>
   );
 };
