@@ -23,6 +23,37 @@ enum CursorType {
 }
 
 export const Cursor = () => {
+
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
+    window.addEventListener("resize", () => {
+      setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
+    });
+
+    // click effect
+    document.addEventListener("mousedown", (e) => {
+      if (cursorRef?.current) {
+        animation.start({
+          scale: 0.5,
+          transition: { type:"spring", stiffness: 300, damping: 10 },
+        });
+      }
+    });
+    document.addEventListener("mouseup", (e) => {
+      if (cursorRef?.current) {
+        animation.start({
+          scale: 1,
+          transition: { type:"spring", stiffness: 300, damping: 10 },
+        });
+      }
+    });
+  }, []);
+
+
+
+
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -85,6 +116,10 @@ export const Cursor = () => {
   }, []);
 
   const animation = useAnimation();
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <motion.div

@@ -4,12 +4,13 @@ import Spline from "@splinetool/react-spline";
 import Image from "next/image";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import { physicsAnim } from '../../constants/index';
 
-export interface Props extends WorkCard {}
+export interface Props extends WorkCard {isImg?:boolean}
 
-export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
+export const Card: FC<Props> = ({ thumb, title, desc, splineUrl, img,isImg }) => {
   return (
-    <div className="flex bg-[#090909] shadow-lg p-2 md:p-12 rounded-3xl items-center justify-between gap-20 md:h-[82vh] flex-col md:flex-row w-[90%] mx-auto">
+    <div className="flex bg-[#090909] shadow-lg p-4 md:p-12 rounded-3xl items-center justify-between gap-20 md:h-[82vh] flex-col md:flex-row w-[90%] mx-auto">
       <div className="md:min-w-[22rem]">
         <Image
           src={thumb}
@@ -37,19 +38,24 @@ export const Card: FC<Props> = ({ thumb, title, desc, img }) => {
           {desc}
         </motion.p>
       </div>
-      <div className="sm:min-w-[30rem] cursor-fill">
-        {img.is3D ? (
+      <motion.div className="sm:min-w-[30rem] cursor-fill"
+        initial={{ y: 100, opacity: 0 }}
+        exit={{ y: 100, opacity: 0 }}
+        transition={{ ...physicsAnim }}
+        whileInView={{ y: 0, opacity: 1 }}
+      >
+        {!isImg ? (
           <div className="">
             <Spline
-              scene={img.src}
+              scene={splineUrl}
               style={{ width: "480px", height: "480px" }}
               className="spline-scene"
             />
           </div>
         ) : (
-          <Image src={img.src} alt={title} width={1024} height={580} />
+          <Image src={img} alt={title} width={1024} height={580} />
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };

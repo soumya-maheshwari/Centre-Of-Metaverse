@@ -1,4 +1,4 @@
-import { Cursor, Hero, Projects, Work } from "@/components";
+import { Cursor, Hero, Projects, SmoothScroll, Work } from "@/components";
 import AR from "@/components/AR";
 import Domains from "@/components/Domains";
 import Faculty from "@/components/Faculty";
@@ -10,16 +10,21 @@ import TechStack from "@/components/TechStack";
 import VR from "@/components/VR";
 import React from "react";
 
+
 const page = () => {
+
   return (
     <>
       <main className="text-white">
         <Navbar />
         <div className="flex flex-col bg-black min-h-screen mt-16">
+          {/* TODO: Fix smooth scroll height */}
+          {/* <SmoothScroll> */}
           <Hero />
           <Intro />
           <AR />
           <VR />
+          {/* </SmoothScroll> */}
           <Work />
           {/* <Domains /> */}
           <TechStack />
@@ -28,7 +33,6 @@ const page = () => {
           <Footer />
         </div>
       </main>
-      <Cursor />
     </>
   );
 };

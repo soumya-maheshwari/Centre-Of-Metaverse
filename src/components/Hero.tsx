@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import { physicsAnim } from "@/constants";
 
 const MotionImage = motion(Image);
 const MotionLink = motion(Link);
@@ -15,7 +16,7 @@ export const Hero = () => {
           className="lg:text-[4.5rem] md:text-[3rem] text-3xl"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.25, delay: 0.2 }}
+          transition={{ ...physicsAnim, delay: 0.2 }}
           whileInView={{ y: 0, opacity: 1 }}
         >
           EXPERIENCE THE
@@ -25,7 +26,7 @@ export const Hero = () => {
           className="lg:text-[6.5rem] md:text-[4.5rem] text-4xl leading-normal"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.25, delay: 0.4 }}
+          transition={{ ...physicsAnim, delay: 0.4 }}
           whileInView={{ y: 0, opacity: 1 }}
         >
           METAVERSE
@@ -40,15 +41,15 @@ export const Hero = () => {
           // layout="responsive"
           className="ease-in-out w-[16rem] h-auto cursor-fill"
           initial={{ scale: 0.5, opacity: 0 , }}
-          animate={{ scale: 1, opacity: 1, transition: { duration: 0.5, delay: 0.6}}}
-          whileHover={{ scale: 1.2 , transition:{delay:0, duration:0.3}}}
+          animate={{ scale: 1, opacity: 1, transition: { ...physicsAnim, delay: 0.6}}}
+          whileHover={{ scale: 1.2 , transition:{delay:0, ...physicsAnim}}}
         />
       </div>
       <motion.div
         className="text-white mt-12 uppercase md:text-2xl font-bold font-futura text-lg tracking-wider"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.25, delay: 0.8 }}
+        transition={{ ...physicsAnim, delay: 0.8 }}
         whileInView={{ y: 0, opacity: 1 }}
       >
         <p>DREAM.DESIGN.DEVELOP</p>
@@ -58,7 +59,7 @@ export const Hero = () => {
         className="mt-6 bg-white text-[#333333] px-3 py-2 rounded-full font-bold text-sm"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.25, delay: 1 }}
+        transition={{ ...physicsAnim, delay: 1 }}
         whileInView={{ y: 0, opacity: 1 }}
       >
         Know More

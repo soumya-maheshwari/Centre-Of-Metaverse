@@ -56,6 +56,19 @@ const Footer = () => {
                 className="w-11 icon"
               />
             </a>
+            <a
+              href="https://www.linkedin.com/company/centre-of-metaverse"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/linkedin.svg"
+                alt="Linkedin"
+                width={16}
+                height={16}
+                className="w-10 icon"
+              />
+            </a>
           </div>
         </div>
       </footer>
