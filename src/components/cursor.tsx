@@ -31,6 +31,24 @@ export const Cursor = () => {
     window.addEventListener("resize", () => {
       setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0||window.screen.width<480);
     });
+
+    // click effect
+    document.addEventListener("mousedown", (e) => {
+      if (cursorRef?.current) {
+        animation.start({
+          scale: 0.5,
+          transition: { type:"spring", stiffness: 300, damping: 10 },
+        });
+      }
+    });
+    document.addEventListener("mouseup", (e) => {
+      if (cursorRef?.current) {
+        animation.start({
+          scale: 1,
+          transition: { type:"spring", stiffness: 300, damping: 10 },
+        });
+      }
+    });
   }, []);
 
 
