@@ -5,7 +5,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <main className="w-screen h-screen bg-white overflow-x-hidden">
+    <main className="w-screen h-screen bg-black overflow-x-hidden">
       <Navbar isDark />
       <div>
         <div
