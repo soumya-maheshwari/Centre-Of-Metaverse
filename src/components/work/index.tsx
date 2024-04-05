@@ -17,21 +17,21 @@ const cardsData: WorkCard[] = [
     title: "Dream",
     desc: "At the Centre Of Metaverse, we start with a dream—believing in imagination's power to shape new worlds. Our visionaries create immersive experiences, transporting you to places you've only dreamed of. Dream big because in AR/VR, possibilities are limitless.",
     img: "/dream.png",
-    splineUrl:"https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
+    splineUrl: "https://prod.spline.design/bRiHlwZJ2-YRBEvA/scene.splinecode",
     thumb: "/dream.svg",
   },
   {
     title: "Design",
     desc: "Design blends creativity with functionality, sparking the magic of the virtual world. We're devoted to crafting captivating, user-friendly experiences. Our skilled designers meticulously create dreamscapes, focusing on every detail, color, and interaction.",
     img: "/design.png",
-    splineUrl:"https://prod.spline.design/IAStlOX6Wsvo3Un3/scene.splinecode",
+    splineUrl: "https://prod.spline.design/IAStlOX6Wsvo3Un3/scene.splinecode",
     thumb: "/design.svg",
   },
   {
     title: "Develop",
     desc: "Our developers are the Metaverse architects, constructing digital foundations to realize our dreams. They code, optimize performance, and ensure seamless experiences. Development turns ideas into immersive AR/VR projects for everyone to enjoy.",
     img: "/develop.png",
-    splineUrl:"https://prod.spline.design/h2RZIQEEpGaBv4ZI/scene.splinecode",
+    splineUrl: "https://prod.spline.design/h2RZIQEEpGaBv4ZI/scene.splinecode",
     thumb: "/develop.svg",
   },
 ];
@@ -56,10 +56,10 @@ export const Work = () => {
   }, []);
 
   useLayoutEffect(() => {
-    const resizeObserver = new ResizeObserver(entries => onResize(entries))
-    if(ghostRef.current) resizeObserver.observe(ghostRef.current)
-    return () => resizeObserver.disconnect()
-  }, [onResize])
+    const resizeObserver = new ResizeObserver((entries) => onResize(entries));
+    if (ghostRef.current) resizeObserver.observe(ghostRef.current);
+    return () => resizeObserver.disconnect();
+  }, [onResize]);
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
@@ -67,17 +67,16 @@ export const Work = () => {
 
   const transform = useTransform(
     scrollYProgress,
-    [0, .8],
-    [0, (-scrollRange+viewportW-200) ]
+    [0, 0.8],
+    [0, -scrollRange + viewportW - 200]
   );
-
 
   const physics = { damping: 15, mass: 0.27, stiffness: 55 };
   const x = useSpring(transform, physics);
 
-  useMotionValueEvent(transform,'change', (latest) => { 
-    console.log(latest)
-  })
+  useMotionValueEvent(transform, "change", (latest) => {
+    console.log(latest);
+  });
 
   return (
     <section className="relative" id="work">
@@ -89,7 +88,7 @@ export const Work = () => {
         className="absolute -top-16 left-0 z-0"
       />
       <div>
-        <h1 className="text-white font-futura text-5xl text-nowrap md:hidden">
+        <h1 className="text-white font-futura text-5xl text-nowrap md:hidden pl-4 sm:ml-0">
           <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
             What
           </span>
@@ -97,12 +96,12 @@ export const Work = () => {
         </h1>
         <div
           ref={scrollRef}
-          className="h-[120rem] relative hidden  md:block will-change-transform" 
+          className="h-[120rem] relative hidden  md:block will-change-transform"
         >
           <div className="sticky overflow-hidden h-screen top-0 z-0 pt-12">
             <motion.div
               ref={scrollWindowRef}
-              style={{ x}}
+              style={{ x }}
               className="h-screen w-full flex items-center flex-col md:flex-row"
             >
               <h1 className="text-white font-futura text-5xl m-16 mx-32 text-nowrap">
