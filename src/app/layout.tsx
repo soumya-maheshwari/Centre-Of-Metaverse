@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable} bg-black`}>
+      <body className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable} bg-black overflow-x-hidden md:overflow-x-auto`}>
         {children}
         <Cursor />
       </body>
