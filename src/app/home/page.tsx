@@ -1,18 +1,17 @@
 import { Cursor, Hero, Projects, SmoothScroll, Work } from "@/components";
-import AR from "@/components/AR";
-import Domains from "@/components/Domains";
-import Faculty from "@/components/Faculty";
-import Footer from "@/components/Footer";
-import Intro from "@/components/Intro";
-import Navbar from "@/components/Navbar";
-import RotatingComponent from "@/components/Rotation";
-import TechStack from "@/components/TechStack";
-import VR from "@/components/VR";
+import dynamic from "next/dynamic";
 import React from "react";
 
+const AR = dynamic(() => import("@/components/AR"));
+const VR = dynamic(() => import("@/components/VR"));
+const Domains = dynamic(() => import("@/components/Domains"));
+const Faculty = dynamic(() => import("@/components/Faculty"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const Intro = dynamic(() => import("@/components/Intro"));
+const Navbar = dynamic(() => import("@/components/Navbar"));
+const TechStack = dynamic(() => import("@/components/TechStack"));
 
-const page = () => {
-
+const Page = () => {
   return (
     <>
       <main className="text-white">
@@ -37,4 +36,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
