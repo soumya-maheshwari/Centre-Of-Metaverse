@@ -105,6 +105,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
               </Link>
             </li>
           ))}
+          <Link href="/register" className="font-futura text-white bg-purple bg-gradient-to-br from-pink-500 to-sky-600 rounded-full px-4 py-2 mx-3">Register</Link>
         </ul>
       </div>
     </motion.nav>

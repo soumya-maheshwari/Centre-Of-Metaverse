@@ -18,10 +18,13 @@ const page = () => {
       <main className="text-white">
         <Navbar />
         <div className="flex flex-col bg-black min-h-screen mt-16">
+          {/* TODO: Fix smooth scroll height */}
+          {/* <SmoothScroll> */}
           <Hero />
           <Intro />
           <AR />
           <VR />
+          {/* </SmoothScroll> */}
           <Work />
           {/* <Domains /> */}
           <TechStack />
@@ -30,7 +33,6 @@ const page = () => {
           <Footer />
         </div>
       </main>
-      <Cursor />
     </>
   );
 };

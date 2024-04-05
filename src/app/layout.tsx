@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Cursor } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable} bg-black`}>
         {children}
+        <Cursor />
       </body>
     </html>
   );
