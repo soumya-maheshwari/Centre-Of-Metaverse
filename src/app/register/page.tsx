@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <main className="w-screen h-screen bg-black overflow-x-hidden">
       <Navbar isDark />
-      <div>
+      <div className="mt-16">
         <div
           className="visme_d"
           data-title="MetaRegistration"
