@@ -60,7 +60,7 @@ const Footer = () => {
                 className="w-11 icon"
               />
             </a>
-            <a
+            {/* <a
               href="https://www.linkedin.com/company/centre-of-metaverse"
               target="_blank"
               rel="noopener noreferrer"
@@ -72,7 +72,7 @@ const Footer = () => {
                 height={16}
                 className="w-10 icon"
               />
-            </a>
+            </a> */}
           </div>
         </div>
       </footer>
