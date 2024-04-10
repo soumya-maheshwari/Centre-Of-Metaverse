@@ -10,8 +10,8 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let Links = [
     { name: "Home", link: "/" },
     { name: "About", link: "#work" },
-    { name: "Contact Us", link: "#contact" },
-    // { name: "Events", link: "/events" },
+    { name: "Contact", link: "#contact" },
+    { name: "Register", link: "/register" },
   ];
   return (
     <motion.nav
@@ -106,12 +106,6 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
               </Link>
             </li>
           ))}
-          <Link
-            href="/register"
-            className="font-futura text-black bg-purple bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] rounded-full px-4 py-2 mx-[-2px] md:mx-4"
-          >
-            Register
-          </Link>
         </ul>
       </div>
     </motion.nav>
