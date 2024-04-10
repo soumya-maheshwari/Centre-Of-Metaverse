@@ -32,7 +32,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
             <Image
               width={1000}
               height={200}
-              className="w-20 h-auto mr-2 "
+              className="w-20 h-auto mr-2 cursor-pointer"
               src="/logo.png"
               alt="Centre of Metaverse"
             />
@@ -95,12 +95,9 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
           }`}
         >
           {Links.map((link) => (
-            <li
-              key={link.name}
-              className="md:ml-8 text-[18px] md:my-0 my-7 cursor-enlarge"
-            >
+            <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7">
               <Link href={link.link}>
-                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5">
+                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5 cursor-pointer">
                   {link.name}
                 </div>
               </Link>

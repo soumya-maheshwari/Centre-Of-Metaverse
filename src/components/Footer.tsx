@@ -12,7 +12,7 @@ const Footer = () => {
               <Image
                 width={1000}
                 height={200}
-                className="w-20 h-auto mr-2"
+                className="w-20 h-auto mr-2 cursor-pointer"
                 src="/logo.png"
                 alt="Centre of Metaverse"
               />
@@ -43,7 +43,7 @@ const Footer = () => {
                 alt="Insta"
                 width={20}
                 height={20}
-                className="w-11 icon"
+                className="w-11 icon cursor-pointer"
               />
             </a>
 
@@ -57,7 +57,7 @@ const Footer = () => {
                 alt="Mail"
                 width={20}
                 height={20}
-                className="w-11 icon"
+                className="w-11 icon cursor-pointer"
               />
             </a>
             {/* <a
