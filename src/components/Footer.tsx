@@ -43,7 +43,7 @@ const Footer = () => {
                 alt="Insta"
                 width={20}
                 height={20}
-                className="w-11 icon"
+                className="w-11 icon cursor-pointer"
               />
             </a>
 
@@ -57,7 +57,7 @@ const Footer = () => {
                 alt="Mail"
                 width={20}
                 height={20}
-                className="w-11 icon"
+                className="w-11 icon cursor-pointer"
               />
             </a>
             {/* <a
