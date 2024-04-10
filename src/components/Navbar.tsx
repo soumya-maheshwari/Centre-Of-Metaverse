@@ -32,7 +32,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
             <Image
               width={1000}
               height={200}
-              className="w-20 h-auto mr-2 "
+              className="w-20 h-auto mr-2 cursor-pointer"
               src="/logo.png"
               alt="Centre of Metaverse"
             />
