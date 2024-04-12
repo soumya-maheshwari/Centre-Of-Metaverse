@@ -203,7 +203,7 @@ export function RegistrationForm() {
 
           <button
             type="submit"
-            className="bg-[#6a0376] hover:bg-pink-600 text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
+            className="bg-[#de17ce] hover:bg-[#c413b5] text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
           >
             Register
           </button>
