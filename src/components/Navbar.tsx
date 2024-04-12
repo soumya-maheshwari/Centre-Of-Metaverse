@@ -95,9 +95,20 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-[18px] md:my-0 my-7">
+            <li
+              key={link.name}
+              className={`md:ml-8 text-[18px] md:my-0 my-7 ${
+                link.name == "Register" ? " -ml-2" : " "
+              }`}
+            >
               <Link href={link.link}>
-                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5 cursor-pointer">
+                <div
+                  className={` ${
+                    link.name === "Register"
+                      ? "register-btn text-[#E9E9E9] duration-400 font-poppins font-semibold  leading-5 cursor-pointer max-w-32"
+                      : "text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5 cursor-pointer"
+                  }`}
+                >
                   {link.name}
                 </div>
               </Link>
