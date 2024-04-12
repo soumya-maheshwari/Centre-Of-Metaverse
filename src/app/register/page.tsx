@@ -6,7 +6,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <main className="w-screen h-screen bg-black overflow-x-hidden flex md:flex-row flex-col">
+    <main className="bg-black overflow-x-hidden flex md:flex-row flex-col">
       <div className="w-full md:w-2/5 flex p-8">
         <div className="flex flex-col">
           <Link href="/">
@@ -33,13 +33,23 @@ const Page = () => {
               </div>
             </div>
           </Link>
-
-          <h1 className="text-white font-futura text-2xl leading-10 mt-12">
+          <h1 className="text-white font-work-sans text-xl leading-10 mt-4">
             Register Now for the Metaverse Experience
           </h1>
-          <p className="text-white font-work-sans text-xl mt-12">
+          {/* <p className="text-white font-work-sans text-xl mt-12">
             Register now for the upcoming event organised by the Centre Of
             Metaverse AKGEC{" "}
+          </p> */}
+          {/* add poster image here */}
+          {/* <Image
+            width={1000}
+            height={200}
+            className="w-20 h-auto mr-2 cursor-pointer"
+            src="/logo.png"
+            alt="Centre of Metaverse"
+          /> */}
+          <p className="text-white text-center items-center justify-center mt-40 text-2xl">
+            poster here
           </p>
         </div>
       </div>

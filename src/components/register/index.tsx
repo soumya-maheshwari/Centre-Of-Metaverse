@@ -55,36 +55,36 @@ export function RegistrationForm() {
   };
 
   return (
-    <section className="">
-      <div className="bg-white md:px-8 py-4 h-screen mx-auto leading-10">
+    <section className="bg-white min-h-screen">
+      <div className="md:px-8 py-4 mx-auto leading-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="font-work-sans text-[#2A2A2A] font-semibold text-xl w-[80%] mx-auto"
+          className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
         >
-          <h1 className="font-semibold font-work-sans text-2xl leading-9 text-center">
-            Enter Your Details
+          <h1 className="font-bold font-futura text-3xl leading-9 text-center text-pink-500 shadow-md">
+            VISION
           </h1>
-          <div className="mt-4">
-            <label htmlFor="name" className="block mb-1 text-sm">
+          <div className="mt-4 row">
+            <label htmlFor="name" className="block mb-1 text-sm col-12">
               Name
             </label>
             <input
               type="text"
               id="name"
               placeholder="Name"
-              className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              className="md:h-10 w-full rounded-md border text-black  border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
 
           <div className="mt-4">
             <label htmlFor="Email" className="block mb-1 text-sm">
-              Email
+              College Email
             </label>
             <input
               type="text"
               id="name"
-              placeholder="Email"
-              className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="@akgec.ac.in"
+              className="md:h-10 w-full rounded-md border text-black  border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
 
@@ -95,47 +95,48 @@ export function RegistrationForm() {
             <input
               type="text"
               id="PhoneNumber"
-              placeholder="Email"
-              className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Phone Number"
+              className="md:h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
 
-          <div className="flex space-x-4 ">
-            <div className="mt-4">
+          <div className="mt-4">
+            <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
+              Student Number
+            </label>
+            <input
+              type="text"
+              id="studentNumber"
+              placeholder="student Number"
+              className="h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+            />
+          </div>
+
+          <div className="flex space-x-4 w-full">
+            <div className="mt-4 w-1/3">
               <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
                 Gender
               </label>
               <select
                 id="Gender"
-                className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               >
+                <option>Select Gender </option>
                 <option value="Male"> Male</option>
 
                 <option value="Female"> Female</option>
               </select>
             </div>{" "}
-            <div className="mt-4">
-              <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
-                Student Number
-              </label>
-              <input
-                type="text"
-                id="studentNumber"
-                placeholder="student Number"
-                className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              />
-            </div>
-          </div>
-
-          <div className="flex space-x-4 w-full">
-            <div className="mt-4">
+            <div className="mt-4 w-1/3">
               <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
                 Section
               </label>
               <select
                 id="Gender"
-                className="md:h-10 rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 w-[100%]"
+                className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               >
+                <option className="w-full">Select Section </option>
+
                 <option value="S1">S1</option>
                 <option value="S2">S2</option>
                 <option value="S3">S3</option>
@@ -158,14 +159,16 @@ export function RegistrationForm() {
                 <option value="S20">S20</option>
               </select>
             </div>{" "}
-            <div className="mt-4">
+            <div className="mt-4 w-1/3">
               <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
                 Branch
               </label>
               <select
                 id="studentNumber"
-                className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               >
+                <option>Select Branch </option>
+
                 <option value="CSE">CSE</option>
                 <option value="CSE-DS">CSE-DS</option>
                 <option value="CSE-AIML">CSE-AIML</option>
@@ -184,21 +187,21 @@ export function RegistrationForm() {
 
           <div className="mt-4">
             <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
-              Residency
+              Hosteller
             </label>
             <select
               id="PhoneNumber"
-              className="md:h-10 w-full rounded-md border text-white md:text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              className="md:h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <option value="true">Hosteller</option>
-              <option value="false">Day Scholar</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
           <button
             type="submit"
-            className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 w-full mt-6 rounded-md"
+            className="bg-pink-500 hover:bg-pink-600 text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
           >
-            Submit
+            Register
           </button>
         </form>
       </div>
