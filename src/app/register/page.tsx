@@ -35,13 +35,10 @@ const Page = () => {
                 </div>
               </div>
             </Link>
-            <h1 className="text-white font-work-sans text-xl leading-10 mt-4">
+            {/* <h1 className="text-white font-work-sans text-xl leading-10 mt-4">
               Register Now for the Metaverse Experience
-            </h1>
-            {/* <p className="text-white font-work-sans text-xl mt-12">
-            Register now for the upcoming event organised by the Centre Of
-            Metaverse AKGEC{" "}
-          </p> */}
+            </h1> */}
+
             {/* add poster image here */}
             {/* <Image
             width={1000}
@@ -50,9 +47,6 @@ const Page = () => {
             src="/logo.png"
             alt="Centre of Metaverse"
           /> */}
-            <p className="text-white text-center items-center justify-center mt-40 text-2xl">
-              poster here
-            </p>
           </div>
         </div>
         <div className="w-full md:w-3/5">

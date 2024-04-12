@@ -62,10 +62,8 @@ export function RegistrationForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
         >
-          <h1 className="font-bold font-futura text-4xl leading-9 text-center text-pink-500 shadow-sm">
-            VISION
-          </h1>
-          <div className="mt-4">
+          <h1 className="vision-head text-center mt-4">VISION</h1>
+          <div className="mt-8">
             <label htmlFor="name" className="block mb-1 text-sm col-12">
               Name
             </label>
@@ -203,7 +201,7 @@ export function RegistrationForm() {
 
           <button
             type="submit"
-            className="bg-pink-500 hover:bg-pink-600 text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
+            className="bg-[#6a0376] hover:bg-pink-600 text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
           >
             Register
           </button>

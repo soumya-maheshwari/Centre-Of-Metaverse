@@ -18,6 +18,7 @@ const config: Config = {
         inter: ["Inter", "sans-serif"],
         "work-sans": ["Work Sans", "sans-serif"],
         futura: ["var(--font-futura-maxi-bold)", "sans-serif"],
+        bungeeInline: ["var(--font-bungee-inline)", "sans-serif"],
       },
     },
   },
