@@ -62,7 +62,9 @@ export function RegistrationForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
         >
-          <h1 className="vision-head text-center mt-4">VISION</h1>
+          <h1 className="vision-head text-center mt-4 font-bungeeInline">
+            VISION
+          </h1>
           <div className="mt-8">
             <label htmlFor="name" className="block mb-1 text-sm col-12">
               Name

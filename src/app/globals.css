@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -140,17 +139,15 @@ img {
 /* register */
 
 .vision-head {
-  font-family: "Bungee Inline", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 70px;
-  /* color: red; */
   padding: 30px;
   background: linear-gradient(
     180deg,
     rgb(223, 65, 210) 50%,
     rgb(180, 38, 231) 50%
-  ); /* Red at the top, pink at the bottom */
+  );
   -webkit-background-clip: text; /* Apply the gradient to the text */
   -webkit-text-fill-color: transparent; /* Hide the text fill */
 }
