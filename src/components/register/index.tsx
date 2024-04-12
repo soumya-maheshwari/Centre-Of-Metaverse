@@ -56,7 +56,7 @@ export function RegistrationForm() {
 
   return (
     <section className="">
-      <div className="bg-white px-8 py-4 h-screen mx-auto leading-10">
+      <div className="bg-white md:px-8 py-4 h-screen mx-auto leading-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans text-[#2A2A2A] font-semibold text-xl w-[80%] mx-auto"

@@ -6,8 +6,8 @@ import React from "react";
 
 const Page = () => {
   return (
-    <main className="w-screen h-screen bg-black overflow-x-hidden flex">
-      <div className="w-2/5 flex p-8">
+    <main className="w-screen h-screen bg-black overflow-x-hidden flex md:flex-row flex-col">
+      <div className="w-full md:w-2/5 flex p-8">
         <div className="flex flex-col">
           <Link href="/">
             <div className="flex items-center font-sans">
@@ -43,7 +43,7 @@ const Page = () => {
           </p>
         </div>
       </div>
-      <div className="w-3/5">
+      <div className="w-full md:w-3/5">
         <RegistrationForm />
       </div>
     </main>
