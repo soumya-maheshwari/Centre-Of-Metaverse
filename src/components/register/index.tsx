@@ -1,41 +1,93 @@
 "use client";
 import { useForm, SubmitHandler, useFormState } from "react-hook-form";
 import { TracingBeam } from "@/components";
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FormValues } from "@/type";
-
+import { register as registerForm } from "@/actions";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 export function RegistrationForm() {
+  const captchaRef = useRef<TurnstileInstance>(null);
+
   const {
     register,
     handleSubmit,
     watch,
     getValues,
+    setValue,
     formState: { errors },
-  } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  } = useForm<FormValues>({
+    defaultValues: {
+      captchaToken: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+
+    if (captchaRef.current?.getResponse() === "") {
+      alert("Please verify you are not a robot");
+      return;
+    }
+
     console.log(data);
+
+
+    const res = await registerForm(data);
+
+    if (res?.error) {
+      alert(res.error.message);
+      return;
+    }
+
+    captchaRef.current?.reset();
   };
 
   const numberOfFieldsFilled = Object.values(getValues());
 
   const sections = useMemo(
     () => [
-      "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10",
-      "S11", "S12", "S13", "S14", "S15", "S16", "S17", "S18", "S19", "S20"
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
     ],
     []
   );
 
   const branches = useMemo(
     () => [
-      "AIML", "CE", "CSE", "CSE-AIML", "CSE-DS", "CSE-Hindi",
-      "CS", "CSIT", "ECE", "EN", "IT", "ME"
+      "AIML",
+      "CE",
+      "CSE",
+      "CSE-AIML",
+      "CSE-DS",
+      "CSE-Hindi",
+      "CS",
+      "CSIT",
+      "ECE",
+      "EN",
+      "IT",
+      "ME",
     ],
     []
   );
-
 
   return (
     <TracingBeam className="px-6">
@@ -168,8 +220,10 @@ export function RegistrationForm() {
                   className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {sections.map((section, index) => (
-                  <option key={index} value={section}>{section}</option>
-                ))}
+                    <option key={index} value={section}>
+                      {section}
+                    </option>
+                  ))}
                 </select>
               </div>{" "}
               <div className="mt-4 w-1/2">
@@ -182,8 +236,10 @@ export function RegistrationForm() {
                   className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {branches.map((branch, index) => (
-                  <option key={index} value={branch}>{branch}</option>
-                ))}
+                    <option key={index} value={branch}>
+                      {branch}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -202,13 +258,13 @@ export function RegistrationForm() {
                   <option value="Female"> Female</option>
                   <option value="Other">Other</option>
                 </select>
-                
               </div>
               <div className="mt-4 w-1/2">
                 <label htmlFor="Hosteller" className="block mb-1 text-sm">
                   Hosteler
                 </label>
                 <select
+                  {...register("residency", { required: true })}
                   id="Hostellers"
                   className="md:h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 >
@@ -217,7 +273,18 @@ export function RegistrationForm() {
                 </select>
               </div>
             </div>
-            
+
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ""}
+              options={{
+                theme: "light",
+              }}
+              onSuccess={(token) => {
+                setValue("captchaToken", token);
+              }}
+              ref={captchaRef}
+              className="mt-4 rounded-e-lg"
+            />
             <button
               type="submit"
               className="bg-[#de17ce] hover:bg-[#c413b5] text-white font-normal py-2 px-4 w-full mt-6 rounded-md"

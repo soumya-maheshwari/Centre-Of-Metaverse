@@ -49,5 +49,6 @@ export type FormValues = {
       | "S18"
       | "S19"
       | "S20";
+    captchaToken: string;
   };
   
