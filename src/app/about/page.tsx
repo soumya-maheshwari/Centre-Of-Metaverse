@@ -14,10 +14,9 @@ const page = () => {
       <Navbar />
       <div className="flex flex-col bg-black min-h-screen mt-16">
         <Intro />
-        {/* <AR />
-        <VR /> */}
         <Work />
         <TechStack />
+        <Projects />
         <Footer />
       </div>
     </main>

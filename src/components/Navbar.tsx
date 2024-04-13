@@ -9,7 +9,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
   let Links = [
     { name: "Home", link: "/" },
-    { name: "About", link: "#work" },
+    { name: "About", link: "/about" },
     { name: "Contact", link: "#contact" },
     { name: "Register", link: "/register" },
   ];
