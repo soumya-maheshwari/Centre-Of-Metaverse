@@ -46,7 +46,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}
@@ -71,7 +71,7 @@ const TechStack = () => {
                 x: ["0%", "-100%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}
@@ -96,7 +96,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}

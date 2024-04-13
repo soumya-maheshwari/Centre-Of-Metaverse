@@ -24,7 +24,7 @@ const VR = () => {
   }, []);
 
   return (
-    <div className="flex mx-auto p-4 flex-col items-center justify-center mt-8 px-1 sm:px-20 md:px-10 py-6 gap-6 sm:flex-row ">
+    <div className="flex mx-auto p-4 flex-col items-center justify-center mt-6 px-1 sm:px-20 md:px-10 py-6 gap-6 sm:flex-row ">
       {" "}
       <div className="w-full sm:w-1/2 p-4">
         <motion.h2

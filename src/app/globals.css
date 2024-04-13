@@ -152,5 +152,21 @@ img {
   -webkit-text-fill-color: transparent; /* Hide the text fill */
 }
 
-/* 6a0376 */
-/* ad3fdc */
+/* loader screen  */
+
+@keyframes loaderAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loader-line {
+  background: linear-gradient(90deg, #949322, #4ddb83, #e75fde);
+  animation: loaderAnimation 6s ease;
+  -webkit-animation: loaderAnimation 6s ease;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}

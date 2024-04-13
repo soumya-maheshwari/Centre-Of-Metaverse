@@ -19,6 +19,9 @@ const Faculty = () => {
 
   return (
     <div className="w-[94%] p-1 sm:px-24 mx-auto mt-20 relative overflow-clip py-8">
+      <h1 className="font-futura text-3xl sm:text-4xl mb-6 text-white">
+        Faculty
+      </h1>
       <Image
         src="/lamp1.png"
         alt=""
@@ -27,9 +30,6 @@ const Faculty = () => {
         className="absolute -top-12 -left-36 z-0 blur-2xl"
       />
 
-      <h1 className="font-futura text-3xl sm:text-4xl mb-6 text-white">
-        Faculty
-      </h1>
       <div className="flex flex-col sm:flex-row justify-between gap-4">
         {faculties.map((faculty) => (
           <div key={faculty.id} className="w-[96%]  md:w-1/2  font-work-sans">
