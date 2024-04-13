@@ -36,7 +36,7 @@ const cardsData: WorkCard[] = [
   },
 ];
 
-export const Work = () => {
+export default function Work() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollWindowRef = useRef<HTMLDivElement>(null);
   const ghostRef = useRef<HTMLDivElement>(null);
@@ -88,11 +88,11 @@ export const Work = () => {
         className="absolute -top-16 left-0 z-0"
       />
       <div>
-        <h1 className="text-white font-futura text-5xl text-nowrap md:hidden pl-4 sm:ml-0">
+        <h1 className="text-white font-futura text-4xl md:text-5xl text-nowrap md:hidden pl-4 sm:ml-0 mb-6 md:mb-0">
           <span className="bg-gradient-to-b from-[#74D0FC] to-[#E00CC7] text-transparent bg-clip-text">
             What
           </span>
-          <br /> we do
+          <br className="hidden md:block" /> we do
         </h1>
         <div
           ref={scrollRef}
@@ -127,4 +127,4 @@ export const Work = () => {
       </div>
     </section>
   );
-};
+}
