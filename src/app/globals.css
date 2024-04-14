@@ -132,7 +132,7 @@ img {
 
 @layer components {
   .form-field {
-    @apply border-[#DDDDDD] rounded-xl border p-4 text-xs font-medium focus:border-[#d0d0d0] focus:border mt-2;
+    @apply border-[#DDDDDD] rounded-xl border p-4 text-xs font-medium focus:border-[#d0d0d0] focus:border mt-2 w-full;
   }
 }
 

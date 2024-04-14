@@ -9,6 +9,8 @@ export interface WorkCard {
 
 export type FormValues = {
     name: string;
+    firstName: string;
+    lastName?: string;
     email: string;
     studentId: string;
     phoneNumber: string;

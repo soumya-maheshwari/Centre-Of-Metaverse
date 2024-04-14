@@ -1,7 +1,7 @@
 "use client";
 import { useForm, SubmitHandler, useFormState } from "react-hook-form";
 import { TracingBeam } from "@/components";
-import { useMemo, useRef } from "react";
+import { ChangeEvent, useMemo, useRef } from "react";
 import { FormValues } from "@/type";
 import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
@@ -15,6 +15,7 @@ export function RegistrationForm() {
     watch,
     getValues,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
@@ -23,7 +24,6 @@ export function RegistrationForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
@@ -37,8 +37,12 @@ export function RegistrationForm() {
       alert(res.error.message);
       return;
     }
+    if (!res?.error) {
+      alert("Registered Successfully");
+    }
 
-     alert("Registration successful");
+    // reset form
+    reset();
   };
 
   const numberOfFieldsFilled = Object.values(getValues());
@@ -87,6 +91,23 @@ export function RegistrationForm() {
     []
   );
 
+
+  const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("firstName", event.target?.value);
+    setValue('name', `${event.target?.value} ${getValues('lastName')}`)
+  }
+
+  const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("lastName", event.target?.value);
+    setValue('name', `${getValues('firstName')} ${event.target?.value}`)
+  }
+
+
+
+
+  
+
+
   return (
     <TracingBeam className="px-6">
       <section className="min-h-screen flex">
@@ -96,38 +117,65 @@ export function RegistrationForm() {
             onSubmit={handleSubmit(onSubmit)}
             className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
           >
-            <h1 className="vision-head text-center mt-4 font-bungeeInline">
-              VISION
+            <h1 className="mt-4 text-black text-[2.5rem]">
+              Enter Your Details
             </h1>
-            <div className="mt-8">
-              <label htmlFor="name" className="block mb-1 text-sm col-12">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Name"
-                {...register("name", {
-                  required: {
-                    value: true,
-                    message: "Name is required",
-                  },
-                  minLength: {
-                    value: 3,
-                    message: "Name should be atleast 3 characters",
-                  },
-                })}
-                className="md:h-10 w-full rounded-md border text-black  border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              />
-              {errors.name && (
-                <span className="text-red-500 text-xs">
-                  {errors.name.message}
-                </span>
-              )}
+
+            {/* Name */}
+            <div className="mt-8 flex gap-8">
+              <div className="">
+                <label htmlFor="name" className="block text-sm col-12">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  {...register("firstName", {
+                    required: {
+                      value: true,
+                      message: "Name is required",
+                    },
+                    minLength: {
+                      value: 3,
+                      message: "Name should be atleast 3 characters",
+                    },
+                    validate:{
+                      value:  (value) =>  !!value.trim(),
+                      message: (value) => (value.trim() ? "": "Name cannot be empty")
+                    },
+                  })}
+                  onChange={handleFirstName}
+                  className="form-field"
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-xs">
+                    {errors.name.message}
+                  </span>
+                )}
+                </div>
+                <div>
+                <label htmlFor="name" className="block text-sm col-12">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  {...register("lastName", {
+                    validate:{
+                      value:  (value) => { return !!value.trim()},
+                      message: "Name cannot be empty"
+                    }
+                  })}
+                  onChange={handleLastName}
+                  className="form-field"
+                />
+              </div>
             </div>
 
             <div className="mt-4">
-              <label htmlFor="Email" className="block mb-1 text-sm">
+              <label htmlFor="Email" className="block text-sm">
                 College Email
               </label>
               <input
@@ -144,7 +192,7 @@ export function RegistrationForm() {
                   },
                 })}
                 placeholder="@akgec.ac.in"
-                className="md:h-10 w-full rounded-md border text-black  border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="form-field"
               />
               {errors.email && (
                 <span className="text-red-500 text-xs">
@@ -154,7 +202,7 @@ export function RegistrationForm() {
             </div>
 
             <div className="mt-4">
-              <label htmlFor="PhoneNumber" className="block mb-1 text-sm">
+              <label htmlFor="PhoneNumber" className="block text-sm">
                 Phone Number
               </label>
               <input
@@ -171,7 +219,7 @@ export function RegistrationForm() {
                     message: "Please enter a valid phone number",
                   },
                 })}
-                className="md:h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="form-field"
               />
               {errors.phoneNumber && (
                 <span className="text-red-500 text-xs">
@@ -181,7 +229,7 @@ export function RegistrationForm() {
             </div>
 
             <div className="mt-4">
-              <label htmlFor="studentNumber" className="block mb-1 text-sm">
+              <label htmlFor="studentNumber" className="block text-sm">
                 Student Number
               </label>
               <input
@@ -198,7 +246,7 @@ export function RegistrationForm() {
                   },
                 })}
                 placeholder="student Number"
-                className="h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="form-field"
               />
               {errors.studentId && (
                 <span className="text-red-500 text-xs">
@@ -209,13 +257,13 @@ export function RegistrationForm() {
 
             <div className="flex space-x-4 w-full">
               <div className="mt-4 w-1/2">
-                <label htmlFor="Section" className="block mb-1 text-sm">
+                <label htmlFor="Section" className="block text-sm">
                   Section
                 </label>
                 <select
                   id="Section"
                   {...register("section", { required: true })}
-                  className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="form-field"
                 >
                   {sections.map((section, index) => (
                     <option key={index} value={section}>
@@ -225,13 +273,13 @@ export function RegistrationForm() {
                 </select>
               </div>{" "}
               <div className="mt-4 w-1/2">
-                <label htmlFor="Branch" className="block mb-1 text-sm">
+                <label htmlFor="Branch" className="block text-sm">
                   Branch
                 </label>
                 <select
                   id="Branch"
                   {...register("branch", { required: true })}
-                  className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="form-field"
                 >
                   {branches.map((branch, index) => (
                     <option key={index} value={branch}>
@@ -244,13 +292,13 @@ export function RegistrationForm() {
 
             <div className="flex space-x-4 w-full">
               <div className="mt-4 w-1/2">
-                <label htmlFor="Gender" className="block mb-1 text-sm">
+                <label htmlFor="Gender" className="block text-sm">
                   Gender
                 </label>
                 <select
                   id="Gender"
                   {...register("gender")}
-                  className="md:h-10 block w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="form-field"
                 >
                   <option value="Male"> Male</option>
                   <option value="Female"> Female</option>
@@ -258,13 +306,13 @@ export function RegistrationForm() {
                 </select>
               </div>
               <div className="mt-4 w-1/2">
-                <label htmlFor="Hosteller" className="block mb-1 text-sm">
+                <label htmlFor="Hosteller" className="block text-sm">
                   Hosteler
                 </label>
                 <select
                   {...register("residency", { required: true })}
                   id="Hostellers"
-                  className="md:h-10 w-full rounded-md border text-black border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-1 focus:ring-gray-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="form-field"
                 >
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
