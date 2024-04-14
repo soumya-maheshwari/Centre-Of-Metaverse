@@ -134,8 +134,8 @@ export const register = async (data: FormValues) => {
     body:JSON.stringify(registrationData)
   })
 
-  const sheetResponse=await saveToSheet.json();
-  console.log(sheetResponse);
+  
+
 
   const sendEmail=await fetch(process.env.EMAIL_WEBHOOK_URL??'',{
     method:'POST',
@@ -145,8 +145,6 @@ export const register = async (data: FormValues) => {
     body:JSON.stringify(registrationData)
   })
 
-    const emailResponse=await sendEmail.json();
-    console.log(emailResponse);
 
 
 
