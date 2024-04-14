@@ -109,8 +109,8 @@ export function RegistrationForm() {
   };
 
   return (
-    <section className="min-h-screen flex overflow-hidden">
-      <div className="bg-black w-1/3 h-full p-8">
+    <section className="min-h-screen flex">
+      <div className="bg-black w-1/3 h-full p-8 hidden md:block ">
         <Image
           src="/logo-lg.svg"
           alt="Centre of Metaverse"
@@ -129,7 +129,7 @@ export function RegistrationForm() {
         </video>
 
       </div>
-      <div className="bg-white md:px-8 py-4 mx-auto leading-10 w-3/4">
+      <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
@@ -137,7 +137,7 @@ export function RegistrationForm() {
           <h1 className="mt-4 text-black text-[2.5rem]">Enter Your Details</h1>
 
           {/* Name */}
-          <div className="mt-8 flex gap-8 justify-between">
+          <div className="mt-8 flex gap-8 justify-between flex-col sm:flex-row">
             <div className="w-full">
               <label htmlFor="name" className="block text-sm col-12">
                 First Name
@@ -265,8 +265,8 @@ export function RegistrationForm() {
             )}
           </div>
 
-          <div className="flex space-x-4 w-full">
-            <div className="mt-4 w-1/2">
+          <div className="flex sm:space-x-4 w-full flex-col sm:flex-row">
+            <div className="mt-4 sm:w-1/2 w-full">
               <label htmlFor="Section" className="block text-sm">
                 Section
               </label>
@@ -282,7 +282,7 @@ export function RegistrationForm() {
                 ))}
               </select>
             </div>{" "}
-            <div className="mt-4 w-1/2">
+            <div className="mt-4 sm:w-1/2 w-full">
               <label htmlFor="Branch" className="block text-sm">
                 Branch
               </label>
@@ -300,8 +300,8 @@ export function RegistrationForm() {
             </div>
           </div>
 
-          <div className="flex space-x-4 w-full">
-            <div className="mt-4 w-1/2">
+          <div className="flex sm:space-x-4 w-full  flex-col sm:flex-row">
+            <div className="mt-4 sm:w-1/2 w-full">
               <label htmlFor="Gender" className="block text-sm">
                 Gender
               </label>
@@ -315,7 +315,7 @@ export function RegistrationForm() {
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div className="mt-4 w-1/2">
+            <div className="mt-4 sm:w-1/2 w-full">
               <label htmlFor="Hosteller" className="block text-sm">
                 Hosteler
               </label>
