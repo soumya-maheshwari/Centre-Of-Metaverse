@@ -29,8 +29,7 @@ export function RegistrationForm() {
       return;
     }
 
-    console.log(data);
-
+    captchaRef.current?.reset();
 
     const res = await registerForm(data);
 
@@ -38,7 +37,8 @@ export function RegistrationForm() {
       alert(res.error.message);
       return;
     }
-    captchaRef.current?.reset();
+
+     alert("Registration successful");
   };
 
   const numberOfFieldsFilled = Object.values(getValues());
