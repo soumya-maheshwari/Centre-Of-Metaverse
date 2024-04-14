@@ -7,12 +7,10 @@ import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { isValidEmail, isValidStudentNumber } from "@/utils/validations";
 
 export function RegistrationForm() {
   const captchaRef = useRef<TurnstileInstance>(null);
-
-
-
 
   const {
     register,
@@ -29,6 +27,8 @@ export function RegistrationForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    console.log(data);
+
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
@@ -98,62 +98,77 @@ export function RegistrationForm() {
     []
   );
 
-  const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue("firstName", event.target?.value);
-    setValue("name", `${event.target?.value} ${getValues("lastName")}`);
+  const handleStudentId = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("studentId", event.target?.value);
   };
 
-  const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue("lastName", event.target?.value);
-    setValue("name", `${getValues("firstName")} ${event.target?.value}`);
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("email", event.target?.value);
   };
 
   return (
     <section className="min-h-screen flex">
-      <div className="bg-black w-1/3 h-full p-8 hidden md:block ">
+      <div className="bg-black w-1/3 h-full p-8 hidden md:block">
         <Image
-          src="/logo-lg.svg"
+          src="/Logo-lg.svg"
           alt="Centre of Metaverse"
           width={200}
           height={200}
           className=" my-2"
         />
 
-        <h1 className="text-white text-3xl font-bold mt-12 font-futura">Register Now for the <br/> Metaverse Experience </h1>
+        <h1 className="text-white text-3xl font-bold mt-12 font-futura">
+          Register Now for the <br /> Metaverse Experience{" "}
+        </h1>
 
-        <p className="mt-12 font-work-sans text-[#E9E9E9] text-xl font-normal"> Register now for the upcoming event organised by the Centre Of Metaverse AKGEC </p>
+        <p className="mt-12 font-work-sans text-[#E9E9E9] text-xl font-normal">
+          {" "}
+          Register now for the upcoming event organised by the Centre Of
+          Metaverse AKGEC{" "}
+        </p>
 
-        <video  className="mt-12 w-full rounded-3xl" loop muted preload="auto" autoPlay width={300}  poster="/meta-thumb.png" >
-          <source src="/vids/meta.mp4" type="video/mp4" 
-          />
+        <video
+          className="mt-12 w-full rounded-3xl"
+          loop
+          muted
+          preload="auto"
+          autoPlay
+          width={300}
+          poster="/meta-thumb.png"
+        >
+          <source src="/vids/meta.mp4" type="video/mp4" />
         </video>
-
       </div>
       <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
-      <Image
-          src="/logo-lg.svg"
-          alt="Centre of Metaverse"
-          width={200}
-          height={200}
-          className=" my-2 mx-auto md:hidden"
-        />
+        <div className="bg-black py-3 md:py-0 -mt-4">
+          <Image
+            src="/logo-lg.svg"
+            alt="Centre of Metaverse"
+            width={200}
+            height={200}
+            className=" my-2 mx-auto md:hidden"
+          />
+        </div>
+
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
         >
-          <h1 className="mt-4 text-black text-[2.5rem]">Enter Your Details</h1>
+          <h1 className="vision-head text-center mt-4 font-bungeeInline p-2 md:p-7 md:text-7xl text-6xl ">
+            VISION
+          </h1>
 
           {/* Name */}
           <div className="mt-8 flex gap-8 justify-between flex-col sm:flex-row">
             <div className="w-full">
-              <label htmlFor="name" className="block text-sm col-12">
-                First Name
+              <label htmlFor="name" className="block text-sm">
+                Name
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder="First Name"
-                {...register("firstName", {
+                placeholder="Name"
+                {...register("name", {
                   required: {
                     value: true,
                     message: "Name is required",
@@ -162,12 +177,7 @@ export function RegistrationForm() {
                     value: 3,
                     message: "Name should be atleast 3 characters",
                   },
-                  pattern: {
-                    value: /^\S+$/,
-                    message: 'White spaces are not allowed',
-                  },
                 })}
-                onChange={handleFirstName}
                 className="form-field"
               />
               {errors.name && (
@@ -175,19 +185,6 @@ export function RegistrationForm() {
                   {errors.name.message}
                 </span>
               )}
-            </div>
-            <div className="w-full">
-              <label htmlFor="lastName" className="block text-sm col-12">
-                Last Name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                placeholder="Last Name"
-                {...register("lastName")}
-                onChange={handleLastName}
-                className="form-field"
-              />
             </div>
           </div>
 
@@ -207,6 +204,7 @@ export function RegistrationForm() {
                   value: /^[a-zA-Z0-9._%+-]+@akgec\.ac\.in/,
                   message: "Please enter a valid college email",
                 },
+                validate: (value) => isValidEmail(value) || "Invalid Email Id",
               })}
               placeholder="@akgec.ac.in"
               className="form-field"
@@ -257,13 +255,12 @@ export function RegistrationForm() {
                   value: true,
                   message: "Student number is required",
                 },
-                minLength: {
-                  value: 5,
-                  message: "Enter a valid student number",
-                },
+                validate: (value) =>
+                  isValidStudentNumber(value) || "Invalid student number",
               })}
-              placeholder="student Number"
+              placeholder="Student Number"
               className="form-field"
+              onChange={handleStudentId}
             />
             {errors.studentId && (
               <span className="text-red-500 text-xs">
@@ -323,16 +320,16 @@ export function RegistrationForm() {
               </select>
             </div>
             <div className="mt-4 sm:w-1/2 w-full">
-              <label htmlFor="Hosteller" className="block text-sm">
-                Hosteler
+              <label htmlFor="residency" className="block text-sm">
+                Residency
               </label>
               <select
                 {...register("residency", { required: true })}
                 id="Hostellers"
                 className="form-field"
               >
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Hosteller">Hosteller</option>
+                <option value="Day Scholar">Day Scholar</option>
               </select>
             </div>
           </div>

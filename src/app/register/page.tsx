@@ -10,7 +10,10 @@ const Page = () => {
   return (
     <>
       <main className="bg-black">
-       <RegistrationForm />
+        <RegistrationForm />
+        <div className="-mt-10">
+          <Footer />
+        </div>
       </main>
     </>
   );
