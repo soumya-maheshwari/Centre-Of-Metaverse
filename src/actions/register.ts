@@ -95,5 +95,14 @@ export const register = async (data: FormValues) => {
 
   const { success } = json;
 
-  
+  if (!success) {
+    return {
+      error: {
+        message: "Captcha verification failed",
+      },
+    };
+  }
+
+    // save to database
+    
 };

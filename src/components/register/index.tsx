@@ -2,7 +2,6 @@
 import { useForm, SubmitHandler, useFormState } from "react-hook-form";
 import { TracingBeam } from "@/components";
 import { useMemo, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import { FormValues } from "@/type";
 import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
@@ -39,7 +38,6 @@ export function RegistrationForm() {
       alert(res.error.message);
       return;
     }
-
     captchaRef.current?.reset();
   };
 
