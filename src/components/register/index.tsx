@@ -7,6 +7,7 @@ import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { isValidEmail, isValidStudentNumber } from "@/utils/validations";
 
 export function RegistrationForm() {
   const captchaRef = useRef<TurnstileInstance>(null);
@@ -26,6 +27,8 @@ export function RegistrationForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    console.log(data);
+
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
@@ -95,14 +98,12 @@ export function RegistrationForm() {
     []
   );
 
-  const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue("firstName", event.target?.value);
-    setValue("name", `${event.target?.value} ${getValues("lastName")}`);
+  const handleStudentId = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("studentId", event.target?.value);
   };
 
-  const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue("lastName", event.target?.value);
-    setValue("name", `${getValues("firstName")} ${event.target?.value}`);
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue("email", event.target?.value);
   };
 
   return (
@@ -160,14 +161,14 @@ export function RegistrationForm() {
           {/* Name */}
           <div className="mt-8 flex gap-8 justify-between flex-col sm:flex-row">
             <div className="w-full">
-              <label htmlFor="name" className="block text-sm col-12">
-                First Name
+              <label htmlFor="name" className="block text-sm">
+                Name
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder="First Name"
-                {...register("firstName", {
+                placeholder="Name"
+                {...register("name", {
                   required: {
                     value: true,
                     message: "Name is required",
@@ -176,12 +177,7 @@ export function RegistrationForm() {
                     value: 3,
                     message: "Name should be atleast 3 characters",
                   },
-                  pattern: {
-                    value: /^\S+$/,
-                    message: "White spaces are not allowed",
-                  },
                 })}
-                onChange={handleFirstName}
                 className="form-field"
               />
               {errors.name && (
@@ -189,19 +185,6 @@ export function RegistrationForm() {
                   {errors.name.message}
                 </span>
               )}
-            </div>
-            <div className="w-full">
-              <label htmlFor="lastName" className="block text-sm col-12">
-                Last Name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                placeholder="Last Name"
-                {...register("lastName")}
-                onChange={handleLastName}
-                className="form-field"
-              />
             </div>
           </div>
 
@@ -221,6 +204,7 @@ export function RegistrationForm() {
                   value: /^[a-zA-Z0-9._%+-]+@akgec\.ac\.in/,
                   message: "Please enter a valid college email",
                 },
+                validate: (value) => isValidEmail(value) || "Invalid Email Id",
               })}
               placeholder="@akgec.ac.in"
               className="form-field"
@@ -271,13 +255,12 @@ export function RegistrationForm() {
                   value: true,
                   message: "Student number is required",
                 },
-                minLength: {
-                  value: 5,
-                  message: "Enter a valid student number",
-                },
+                validate: (value) =>
+                  isValidStudentNumber(value) || "Invalid student number",
               })}
-              placeholder="student Number"
+              placeholder="Student Number"
               className="form-field"
+              onChange={handleStudentId}
             />
             {errors.studentId && (
               <span className="text-red-500 text-xs">
@@ -337,16 +320,16 @@ export function RegistrationForm() {
               </select>
             </div>
             <div className="mt-4 sm:w-1/2 w-full">
-              <label htmlFor="Hosteller" className="block text-sm">
-                Hosteler
+              <label htmlFor="residency" className="block text-sm">
+                Residency
               </label>
               <select
                 {...register("residency", { required: true })}
                 id="Hostellers"
                 className="form-field"
               >
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Hosteller">Hosteller</option>
+                <option value="Day Scholar">Day Scholar</option>
               </select>
             </div>
           </div>
