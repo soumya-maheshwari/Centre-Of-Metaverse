@@ -5,9 +5,12 @@ import { ChangeEvent, useMemo, useRef } from "react";
 import { FormValues } from "@/type";
 import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
+import {motion} from 'framer-motion'
 
 export function RegistrationForm() {
   const captchaRef = useRef<TurnstileInstance>(null);
+
+
 
   const {
     register,
@@ -91,25 +94,17 @@ export function RegistrationForm() {
     []
   );
 
-
   const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue("firstName", event.target?.value);
-    setValue('name', `${event.target?.value} ${getValues('lastName')}`)
-  }
+    setValue("name", `${event.target?.value} ${getValues("lastName")}`);
+  };
 
   const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue("lastName", event.target?.value);
-    setValue('name', `${getValues('firstName')} ${event.target?.value}`)
-  }
-
-
-
-
-  
-
+    setValue("name", `${getValues("firstName")} ${event.target?.value}`);
+  };
 
   return (
-    <TracingBeam className="px-6">
       <section className="min-h-screen flex">
         <div className="bg-black w-1/3 h-full"></div>
         <div className="bg-white md:px-8 py-4 mx-auto leading-10 w-3/4">
@@ -122,15 +117,15 @@ export function RegistrationForm() {
             </h1>
 
             {/* Name */}
-            <div className="mt-8 flex gap-8">
-              <div className="">
+            <div className="mt-8 flex gap-8 justify-between">
+              <div className="w-full">
                 <label htmlFor="name" className="block text-sm col-12">
                   First Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  placeholder="Name"
+                  placeholder="First Name"
                   {...register("firstName", {
                     required: {
                       value: true,
@@ -140,9 +135,10 @@ export function RegistrationForm() {
                       value: 3,
                       message: "Name should be atleast 3 characters",
                     },
-                    validate:{
-                      value:  (value) =>  !!value.trim(),
-                      message: (value) => (value.trim() ? "": "Name cannot be empty")
+                    validate: {
+                      value: (value) => !!value.trim(),
+                      message: (value) =>
+                        value.trim() ? "" : "Name cannot be empty",
                     },
                   })}
                   onChange={handleFirstName}
@@ -153,21 +149,16 @@ export function RegistrationForm() {
                     {errors.name.message}
                   </span>
                 )}
-                </div>
-                <div>
-                <label htmlFor="name" className="block text-sm col-12">
-                  First Name
+              </div>
+              <div className="w-full">
+                <label htmlFor="lastName" className="block text-sm col-12">
+                  Last Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("lastName", {
-                    validate:{
-                      value:  (value) => { return !!value.trim()},
-                      message: "Name cannot be empty"
-                    }
-                  })}
+                  id="lastName"
+                  placeholder="Last Name"
+                  {...register("lastName")}
                   onChange={handleLastName}
                   className="form-field"
                 />
@@ -331,15 +322,16 @@ export function RegistrationForm() {
               ref={captchaRef}
               className="mt-4 rounded-e-lg"
             />
-            <button
+            <motion.button
               type="submit"
-              className="bg-[#de17ce] hover:bg-[#c413b5] text-white font-normal py-2 px-4 w-full mt-6 rounded-md"
+              className="bg-[#de17ce] hover:bg-[#c413b5] text-white font-normal py-2 px-4 w-full mt-6 rounded-full font-work-sans"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               Register
-            </button>
+            </motion.button>
           </form>
         </div>
       </section>
-    </TracingBeam>
   );
 }
