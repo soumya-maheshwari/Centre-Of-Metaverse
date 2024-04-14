@@ -130,6 +130,13 @@ export function RegistrationForm() {
 
       </div>
       <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
+      <Image
+          src="/logo-lg.svg"
+          alt="Centre of Metaverse"
+          width={200}
+          height={200}
+          className=" my-2 mx-auto md:hidden"
+        />
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="font-work-sans font-semibold text-xl w-[80%] mx-auto"
