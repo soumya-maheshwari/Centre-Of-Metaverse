@@ -341,14 +341,14 @@ export function RegistrationForm() {
             ref={captchaRef}
             className="mt-4 rounded-e-lg"
           />
-          <button
+          <motion.button
             type="submit"
             className="bg-[#de17ce] hover:bg-[#c413b5] text-white font-normal py-2 px-4 w-full mt-6 rounded-full font-work-sans"
-            // whileHover={{ scale: 1.1 }}
-            // whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
           >
             Register
-          </button>
+          </motion.button>
         </form>
       </div>
     </section>

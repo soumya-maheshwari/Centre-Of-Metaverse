@@ -79,79 +79,78 @@ export const register = async (data: FormValues) => {
     };
   }
 
-  // verify cloudflare turnstile captcha
-  const headersList = headers();
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${data.captchaToken}`,
+      }
+    );
 
-  const response = await fetch(
-    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-    {
+    const json = await response.json();
+
+    const { success } = json;
+
+    if (!success) {
+      return {
+        error: {
+          message: "Captcha verification failed",
+        },
+      };
+    }
+
+    // save to database
+    const db = await connectToDB();
+
+    console.log("DB", db?.readyState);
+
+    const isRegistered = await Registration.findOne({ email: data.email });
+
+    if (isRegistered) {
+      return {
+        error: {
+          message: "You have already registered",
+        },
+      };
+    }
+
+    const { captchaToken, ...registrationData } = data;
+
+    const registration = await Registration.create(registrationData);
+    await registration.save();
+
+    const saveToSheet = await fetch(process.env.SHEET_WEBHOOK_URL ?? "", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${data.captchaToken}`,
-    }
-  );
+      body: JSON.stringify(registrationData),
+    });
 
-  const json = await response.json();
+    const sendEmail = await fetch(process.env.EMAIL_WEBHOOK_URL ?? "", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(registrationData),
+    });
 
-  const { success } = json;
-
-  if (!success) {
+    return {
+      error: null,
+      data: {
+        message: "Registration successful",
+      },
+    };
+  } catch (error) {
+    console.log(error);
     return {
       error: {
-        message: "Captcha verification failed",
+        message: "Something went wrong",
       },
     };
   }
-
-  // save to database
-  const db = await connectToDB();
-  if (!db) return { error: { message: "Database connection failed" } };
-
-  const isRegistered = await Registration.findOne({ email: data.email });
-
-  if (isRegistered) {
-    return {
-      error: {
-        message: "You have already registered",
-      },
-    };
-  }
-
-  const { captchaToken, ...registrationData } = data;
-
-  const registration = new Registration(registrationData);
-  await registration.save();
-
-  await db.disconnect();
-
-  const saveToSheet=await fetch(process.env.SHEET_WEBHOOK_URL??'',{
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify(registrationData)
-  })
-
-  
-
-
-  const sendEmail=await fetch(process.env.EMAIL_WEBHOOK_URL??'',{
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify(registrationData)
-  })
-
-
-
-
-  return {
-    error: null,
-    data: {
-      message: "Registration successful",
-    },
-  };
 };
