@@ -109,7 +109,7 @@ export function RegistrationForm() {
   };
 
   return (
-    <section className="min-h-screen flex">
+    <section className="min-h-screen flex overflow-hidden">
       <div className="bg-black w-1/3 h-full p-8">
         <Image
           src="/logo-lg.svg"
