@@ -142,7 +142,7 @@ export function RegistrationForm() {
       <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
         <div className="bg-black py-3 md:py-0 -mt-4">
           <Image
-            src="/logo-lg.svg"
+            src="/Logo-lg.svg"
             alt="Centre of Metaverse"
             width={200}
             height={200}
