@@ -20,6 +20,7 @@ export function RegistrationForm() {
     setValue,
     reset,
     formState: { errors },
+    setError,
   } = useForm<FormValues>({
     defaultValues: {
       captchaToken: "",
@@ -27,14 +28,26 @@ export function RegistrationForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data);
+    const studentId = data.studentId;
+
+    const regexExpEmail = `^[a-zA-Z]+(${studentId})@akgec.ac.in$`;
+    const re = new RegExp(regexExpEmail);
+
+    if (!re.test(data.email)) {
+      setError("studentId", {
+        type: "manual",
+        message: `Student number does not match with the provided email`,
+      });
+
+      return;
+    }
 
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
     }
 
-    console.log(errors);
+    console.log(errors.email);
 
     captchaRef.current?.reset();
 
