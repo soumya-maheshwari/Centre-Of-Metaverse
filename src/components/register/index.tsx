@@ -217,7 +217,7 @@ export function RegistrationForm() {
                   value: /^[a-zA-Z0-9._%+-]+@akgec\.ac\.in/,
                   message: "Please enter a valid college email",
                 },
-                // validate: (value) => isValidEmail(value) || "Invalid Email Id",
+                validate: (value) => isValidEmail(value) || "Invalid Email Id",
               })}
               placeholder="@akgec.ac.in"
               className="form-field"
