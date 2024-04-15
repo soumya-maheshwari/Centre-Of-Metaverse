@@ -20,6 +20,7 @@ export function RegistrationForm() {
     setValue,
     reset,
     formState: { errors },
+    setError,
   } = useForm<FormValues>({
     defaultValues: {
       captchaToken: "",
@@ -27,14 +28,26 @@ export function RegistrationForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data);
+    const studentId = data.studentId;
+
+    const regexExpEmail = `^[a-zA-Z]+(${studentId})@akgec.ac.in$`;
+    const re = new RegExp(regexExpEmail);
+
+    if (!re.test(data.email)) {
+      setError("studentId", {
+        type: "manual",
+        message: `Student number does not match with the provided email`,
+      });
+
+      return;
+    }
 
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
     }
 
-    console.log(errors);
+    console.log(errors.email);
 
     captchaRef.current?.reset();
 
@@ -204,7 +217,7 @@ export function RegistrationForm() {
                   value: /^[a-zA-Z0-9._%+-]+@akgec\.ac\.in/,
                   message: "Please enter a valid college email",
                 },
-                validate: (value) => isValidEmail(value) || "Invalid Email Id",
+                // validate: (value) => isValidEmail(value) || "Invalid Email Id",
               })}
               placeholder="@akgec.ac.in"
               className="form-field"
