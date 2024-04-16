@@ -8,3 +8,8 @@ export const isValidEmail = (email: string) => {
     /^[a-zA-Z]+(23)(00|1[0123]|15[34]|16[49]|31|40|21)([0-9]{3})(@akgec.ac.in)$/;
   return regex.test(email);
 };
+
+export const isValidPhoneNumber = (phoneNumber: string) => {
+  const regex =  /^(?:\+91)?\d{10}$/;
+  return regex.test(phoneNumber);
+}
