@@ -106,7 +106,6 @@ export const register = async (data: FormValues) => {
     // save to database
     const db = await connectToDB();
 
-    console.log("DB", db?.readyState);
 
     const isRegistered = await Registration.findOne({ email: data.email });
 
@@ -123,6 +122,7 @@ export const register = async (data: FormValues) => {
     const registration = await Registration.create(registrationData);
     await registration.save();
 
+    // save to google sheet
     const saveToSheet = await fetch(process.env.SHEET_WEBHOOK_URL ?? "", {
       method: "POST",
       headers: {
@@ -131,32 +131,13 @@ export const register = async (data: FormValues) => {
       body: JSON.stringify(registrationData),
     });
 
+    // send email
     const sendEmail = await fetch(process.env.EMAIL_WEBHOOK_URL ?? "", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        to: data.email,
-        subjet: "Welcome Aboard! Your Registration for Vision is Confirmed",
-        html: `
-        <p>Hello ${data.name},</p>
-        <p>We are thrilled to have you on board for our upcoming AR/VR workshop! Your registration has been successfully processed, and we're excited to have you join us in exploring the boundless possibilities of augmented and virtual reality.</p>
-        <p>At our workshop, you will have the opportunity to dive deep into the latest advancements in AR and VR technologies and engage in hands-on activities that will help you unlock your potential in this dynamic field.</p>
-        <p>During the workshop, you can expect to:</p>
-        <ul>
-          <li>Gain a comprehensive understanding of the core principles and applications of AR and VR</li>
-          <li>Explore cutting-edge hardware and software solutions used in the industry</li>
-          <li>Participate in interactive sessions and workshops to hone your skills</li>
-          <li>Network with like-minded individuals and connect with potential mentors</li>
-          <li>Receive guidance on how to turn your AR/VR ideas into reality</li>
-        </ul>
-        <p>We're confident that this workshop will be a transformative experience that will equip you with the knowledge and skills to thrive in the ever-evolving world of AR and VR.</p>
-        <p>Even if you don't know anything about AR/VR, don't worry. We will be there to help you out at every step. We look forward to seeing you at the workshop and can't wait to witness the incredible potential you'll unlock. If you have any questions or concerns, please don't hesitate to reach out to our team (https://www.instagram.com/centre.of.metaverse/). We will try to resolve your queries as soon as possible.</p>
-        <p>Best regards,</p>
-        <p>Team C.O.M</p>
-        `,
-      }),
+      body: JSON.stringify(registrationData),
     });
 
     return {
