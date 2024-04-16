@@ -15,7 +15,7 @@ const Work = dynamic(() => import("@/components/work"));
 const Page = () => {
   return (
     <>
-      <main className="text-white">
+      <main className="text-white md:overflow-x-hidden">
         <Navbar />
         <div className="flex flex-col bg-black min-h-screen mt-16">
           {/* TODO: Fix smooth scroll height */}

@@ -1,17 +1,18 @@
 "use client";
-import { useForm, SubmitHandler, useFormState } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { TracingBeam } from "@/components";
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { useRef } from "react";
 import { FormValues } from "@/type";
 import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { isValidEmail, isValidStudentNumber } from "@/utils/validations";
-import Popup from "../../../Popup";
+import { toast } from "react-toastify";
+import { branches, sections } from "@/constants";
+import Link from "next/link";
 
 export function RegistrationForm() {
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const captchaRef = useRef<TurnstileInstance>(null);
 
   const {
@@ -29,15 +30,12 @@ export function RegistrationForm() {
     },
   });
 
-  const toggleSuccessModal = () => {
-    setShowSuccessModal(!showSuccessModal);
-  };
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const studentId = data.studentId;
 
+    // email validation with student number
     const regexExpEmail = `^[a-zA-Z]+(${studentId})@akgec.ac.in$`;
     const re = new RegExp(regexExpEmail);
-
     if (!re.test(data.email)) {
       setError("studentId", {
         type: "manual",
@@ -47,87 +45,41 @@ export function RegistrationForm() {
       return;
     }
 
+    // check if the captcha is filled
     if (captchaRef.current?.getResponse() === "") {
       alert("Please verify you are not a robot");
       return;
     }
-
-    console.log(errors.email);
-
     captchaRef.current?.reset();
 
-    const res = await registerForm(data);
-
-    if (res?.error) {
-      alert(res.error.message);
-      return;
-    }
-    if (!res?.error) {
-      alert("Registered Successfully");
-      toggleSuccessModal();
-    }
-
-    // reset form
+    // reset the form
     reset();
+
+    // register the user
+    toast.promise(registerForm(data), {
+      pending: "Registering...",
+      success: "Successfully registered",
+      error: {
+        render({data}:{data:any}) {
+          console.log(data);
+          return data.message;
+        },
+      },
+    });
   };
 
-  const numberOfFieldsFilled = Object.values(getValues());
 
-  const sections = useMemo(
-    () => [
-      "S1",
-      "S2",
-      "S3",
-      "S4",
-      "S5",
-      "S6",
-      "S7",
-      "S8",
-      "S9",
-      "S10",
-      "S11",
-      "S12",
-      "S13",
-      "S14",
-      "S15",
-      "S16",
-      "S17",
-      "S18",
-      "S19",
-      "S20",
-    ],
-    []
-  );
 
-  const branches = useMemo(
-    () => [
-      "AIML",
-      "CE",
-      "CSE",
-      "CSE-AIML",
-      "CSE-DS",
-      "CSE-Hindi",
-      "CS",
-      "CSIT",
-      "ECE",
-      "EN",
-      "IT",
-      "ME",
-    ],
-    []
-  );
 
   const handleStudentId = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue("studentId", event.target?.value);
   };
 
-  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue("email", event.target?.value);
-  };
+
 
   return (
     <section className="min-h-screen flex">
-      <div className="bg-black w-1/3 h-full p-8 hidden md:block">
+      <div className="bg-black w-1/3 h-full p-8 hidden md:block fixed">
         <Image
           src="/Logo-lg.svg"
           alt="Centre of Metaverse"
@@ -158,8 +110,9 @@ export function RegistrationForm() {
           <source src="/vids/meta.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
+      <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:ml-[33.34%] w-full">
         <div className="bg-black py-3 md:py-0 -mt-4">
+          <Link href="/">
           <Image
             src="/Logo-lg.svg"
             alt="Centre of Metaverse"
@@ -167,6 +120,7 @@ export function RegistrationForm() {
             height={200}
             className=" my-2 mx-auto md:hidden"
           />
+          </Link>
         </div>
 
         <form
@@ -279,7 +233,6 @@ export function RegistrationForm() {
               })}
               placeholder="Student Number"
               className="form-field"
-              onChange={handleStudentId}
             />
             {errors.studentId && (
               <span className="text-red-500 text-xs">
@@ -374,7 +327,6 @@ export function RegistrationForm() {
           </motion.button>
         </form>
       </div>
-      <Popup show={showSuccessModal} onClose={toggleSuccessModal} />
     </section>
   );
 }
