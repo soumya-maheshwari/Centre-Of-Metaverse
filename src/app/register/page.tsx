@@ -1,31 +1,21 @@
-"use client";
+import { RegistrationForm } from "@/components";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Script from "next/script";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
 const Page = () => {
   return (
-    <main className="w-screen h-screen bg-white overflow-x-hidden">
-      <Navbar isDark />
-      <div>
-        <div
-          className="visme_d"
-          data-title="MetaRegistration"
-          data-url="90xe846k-metaregistration"
-          data-domain="forms"
-          data-full-page="false"
-          data-min-height="500px"
-          data-form-id="53222"
-        ></div>
-      </div>
-      <Script
-        src="https://static-bundles.visme.co/forms/vismeforms-embed.js"
-        strategy="beforeInteractive"
-        onReady={() => {
-          console.log("Script loaded");
-        }}
-      />
-    </main>
+    <>
+      <main className="bg-black">
+        <RegistrationForm />
+        <div className="-mt-10">
+          <Footer />
+        </div>
+      </main>
+    </>
   );
 };
 

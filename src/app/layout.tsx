@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Centre Of Metaverse",
-  description: "Dream, Design, Develop - Centre Of Metaverse is a creative studio that specializes in AR/VR experiences.",
+  description:
+    "Dream, Design, Develop - Centre Of Metaverse is a creative studio that specializes in AR/VR experiences.",
 };
 
 const futuraMaxiBold = localFont({
@@ -17,7 +18,17 @@ const futuraMaxiBold = localFont({
   variable: "--font-futura-maxi-bold",
 });
 
-const worksans= Work_Sans({subsets:["latin"],display:"swap",variable:"--font-worksans"});
+const worksans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-worksans",
+});
+
+const bungeeInline = localFont({
+  src: "./fonts/BungeeInline-Regular.ttf",
+  display: "swap",
+  variable: "--font-bungee-inline",
+});
 
 export default function RootLayout({
   children,
@@ -26,9 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable} bg-black overflow-x-hidden md:overflow-x-auto`}>
+      <body
+        className={`${inter.className} ${futuraMaxiBold.variable} ${worksans.variable} ${bungeeInline.variable} bg-black overflow-x-hidden md:overflow-x-auto`}
+      >
         {children}
-        <Cursor />
+        {/* <Cursor /> */}
       </body>
     </html>
   );

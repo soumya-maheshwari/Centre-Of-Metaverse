@@ -8,12 +8,84 @@
 html {
   font-size: 18;
   scroll-behavior: smooth;
-  cursor: none;
+  /* cursor: none; */
 }
 
-a{
-  cursor: none;
+/* navbar */
+
+.register-btn {
+  padding: 0.6em 1.6em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+
+.register-btn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,    #ff7300,    #fffb00,    #48ff00,    #00ffd5,    #002bff, */
+      #7a00ff,
+    #ff00c8,
+    rgb(174, 0, 255)
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.1s ease-in-out;
+  border-radius: 10px;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -ms-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.register-btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+}
+
+/* a {
+  cursor: none;
+} */
 
 /* domain */
 .domain {
@@ -56,4 +128,43 @@ img {
     width: 300px !important;
     height: 300px !important;
   }
+}
+
+@layer components {
+  .form-field {
+    @apply border-[#acabab] rounded-xl border p-4 text-base  font-medium focus:border-[#d0d0d0] focus:border mt-2 w-full;
+  }
+}
+
+/* register */
+
+.vision-head {
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(
+    180deg,
+    rgb(223, 65, 210) 50%,
+    rgb(180, 38, 231) 50%
+  );
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  -webkit-text-fill-color: transparent; /* Hide the text fill */
+}
+
+/* loader screen  */
+
+@keyframes loaderAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loader-line {
+  background: linear-gradient(90deg, #949322, #4ddb83, #e75fde);
+  animation: loaderAnimation 6s ease;
+  -webkit-animation: loaderAnimation 6s ease;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }

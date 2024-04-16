@@ -3,15 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { physicsAnim } from '@/constants/index';
+import { physicsAnim } from "@/constants/index";
 
 const Navbar = ({ isDark }: { isDark?: boolean }) => {
   let [open, setOpen] = useState(false);
   let Links = [
     { name: "Home", link: "/" },
-    { name: "About", link: "#work" },
-    { name: "Contact Us", link: "mailto:centerofmetaverse@gmail.com" },
-    // { name: "Events", link: "/events" },
+    { name: "About", link: "/about" },
+    { name: "Contact", link: "#contact" },
+    { name: "Register", link: "/register" },
   ];
   return (
     <motion.nav
@@ -24,7 +24,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5,...physicsAnim }}
+      transition={{ duration: 0.5, ...physicsAnim }}
     >
       <div className="md:flex items-center justify-between py-4 md:px-28 px-7">
         <Link href="/">
@@ -32,7 +32,7 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
             <Image
               width={1000}
               height={200}
-              className="w-20 h-auto mr-2 "
+              className="w-20 h-auto mr-2 cursor-pointer"
               src="/logo.png"
               alt="Centre of Metaverse"
             />
@@ -97,16 +97,23 @@ const Navbar = ({ isDark }: { isDark?: boolean }) => {
           {Links.map((link) => (
             <li
               key={link.name}
-              className="md:ml-8 text-[18px] md:my-0 my-7 cursor-enlarge"
+              className={`md:ml-8 text-[18px] md:my-0 my-7 ${
+                link.name == "Register" ? " -ml-2" : " "
+              }`}
             >
               <Link href={link.link}>
-                <div className="text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5">
+                <div
+                  className={` ${
+                    link.name === "Register"
+                      ? "register-btn text-[#E9E9E9] duration-400 font-poppins font-semibold  leading-5 cursor-pointer max-w-32"
+                      : "text-[#E9E9E9] duration-400  hover:text-pink-500 hover:bg-clip-text font-poppins font-semibold  leading-5 cursor-pointer"
+                  }`}
+                >
                   {link.name}
                 </div>
               </Link>
             </li>
           ))}
-          <Link href="/register" className="font-futura text-white bg-purple bg-gradient-to-br from-pink-500 to-sky-600 rounded-full px-4 py-2 mx-3">Register</Link>
         </ul>
       </div>
     </motion.nav>

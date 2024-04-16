@@ -1,12 +1,14 @@
-import { Hero, Projects, Work } from "@/components";
-import AR from "@/components/AR";
-import Domains from "@/components/Domains";
-import Footer from "@/components/Footer";
-import Intro from "@/components/Intro";
+import { Hero, Projects } from "@/components";
+
 import Navbar from "@/components/Navbar";
-import TechStack from "@/components/TechStack";
-import VR from "@/components/VR";
+import dynamic from "next/dynamic";
+
 import React from "react";
+
+const Footer = dynamic(() => import("@/components/Footer"));
+const Intro = dynamic(() => import("@/components/Intro"));
+const TechStack = dynamic(() => import("@/components/TechStack"));
+const Work = dynamic(() => import("@/components/work"));
 
 const page = () => {
   return (
@@ -14,10 +16,9 @@ const page = () => {
       <Navbar />
       <div className="flex flex-col bg-black min-h-screen mt-16">
         <Intro />
-        {/* <AR />
-        <VR /> */}
         <Work />
         <TechStack />
+        <Projects />
         <Footer />
       </div>
     </main>

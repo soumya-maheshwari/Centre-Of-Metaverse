@@ -23,13 +23,13 @@ const TechStack = () => {
   const duplicatedImages2 = [...newImagesArray, ...newImagesArray];
 
   return (
-    <div className="flex mx-auto w-[90%] flex-col mt-12">
-      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between overflow-hidden  gap-x-10">
+    <div className="flex mx-auto w-[94%] flex-col mt-12">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between overflow-hidden gap-x-10">
         <div className="md:w-1/2 p-4">
-          <h1 className="text-4xl font-bold text-white mb-6 font-futura">
+          <h1 className="md:text-4xl text-3xl text-white mb-6 font-futura">
             Techstack
           </h1>
-          <p className="mt-2  text-white  font-work-sans text-xl ">
+          <p className="mt-2  text-white  font-work-sans sm:text-xl text-base">
             We utilize a diverse range of cutting-edge technologies to push the
             boundaries of creativity and innovation. let's embark on a thrilling
             adventure into the world of technology and creativity. Stay
@@ -37,8 +37,8 @@ const TechStack = () => {
           </p>
         </div>
 
-        <div className="md:w-1/2 p-4">
-          <div className=" flex flex-col gap-4 border border-white rounded-[20px] p-4 overflow-hidden">
+        <div className="md:w-1/2 p-2">
+          <div className=" flex flex-col gap-2 sm:gap-4 border border-white rounded-[20px] p-4 overflow-hidden">
             {/* row 1 */}
             <motion.div
               className="flex px-1 py-2"
@@ -46,7 +46,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}
@@ -71,7 +71,7 @@ const TechStack = () => {
                 x: ["0%", "-100%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}
@@ -96,7 +96,7 @@ const TechStack = () => {
                 x: ["-100%", "0%"],
                 transition: {
                   ease: "linear",
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                 },
               }}
