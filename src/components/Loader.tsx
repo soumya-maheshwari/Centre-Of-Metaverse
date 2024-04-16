@@ -3,10 +3,12 @@ import React, { useEffect } from "react";
 
 interface LoaderProps {
   onAnimationComplete: () => void;
+  isHidden?: boolean;
 }
 
-const Loader: React.FC<LoaderProps> = ({ onAnimationComplete }) => {
+const Loader: React.FC<LoaderProps> = ({ onAnimationComplete , isHidden}) => {
   useEffect(() => {
+    isHidden?document.body.style.overflow = "auto":document.body.style.overflow = "hidden";
     const loaderLine = document.querySelector(".loader-line");
     const handleAnimationEnd = () => {
       onAnimationComplete();
@@ -18,7 +20,7 @@ const Loader: React.FC<LoaderProps> = ({ onAnimationComplete }) => {
   }, [onAnimationComplete]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen overflow-hidden fixed left-0 top-0 z-50 w-screen" style={{display:isHidden?"none":"flex"}}>
       <div className="flex items-center font-sans">
         <Image
           width={1000}
