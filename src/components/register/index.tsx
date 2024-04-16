@@ -54,7 +54,17 @@ export function RegistrationForm() {
     // reset the form
     reset();
 
-    
+    // register the user
+    toast.promise(registerForm(data), {
+      pending: "Registering...",
+      success: "Successfully registered",
+      error: {
+        render({data}:{data:any}) {
+          console.log(data);
+          return data.message;
+        },
+      },
+    });
   };
 
 
