@@ -77,6 +77,8 @@ export const register = async (data: FormValues) => {
       }),
     });
 
+    console.log("Email sent", sendEmail);
+
     return {
       error: null,
       data: {
