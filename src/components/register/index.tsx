@@ -1,15 +1,17 @@
 "use client";
 import { useForm, SubmitHandler, useFormState } from "react-hook-form";
 import { TracingBeam } from "@/components";
-import { ChangeEvent, useEffect, useMemo, useRef } from "react";
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { FormValues } from "@/type";
 import { register as registerForm } from "@/actions";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { isValidEmail, isValidStudentNumber } from "@/utils/validations";
+import Popup from "../../../Popup";
 
 export function RegistrationForm() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const captchaRef = useRef<TurnstileInstance>(null);
 
   const {
@@ -27,6 +29,9 @@ export function RegistrationForm() {
     },
   });
 
+  const toggleSuccessModal = () => {
+    setShowSuccessModal(!showSuccessModal);
+  };
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const studentId = data.studentId;
 
@@ -59,6 +64,7 @@ export function RegistrationForm() {
     }
     if (!res?.error) {
       alert("Registered Successfully");
+      toggleSuccessModal();
     }
 
     // reset form
@@ -368,6 +374,7 @@ export function RegistrationForm() {
           </motion.button>
         </form>
       </div>
+      <Popup show={showSuccessModal} onClose={toggleSuccessModal} />
     </section>
   );
 }
