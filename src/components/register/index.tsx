@@ -10,6 +10,7 @@ import Image from "next/image";
 import { isValidEmail, isValidStudentNumber } from "@/utils/validations";
 import { toast } from "react-toastify";
 import { branches, sections } from "@/constants";
+import Link from "next/link";
 
 export function RegistrationForm() {
   const captchaRef = useRef<TurnstileInstance>(null);
@@ -111,6 +112,7 @@ export function RegistrationForm() {
       </div>
       <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:ml-[33.34%] w-full">
         <div className="bg-black py-3 md:py-0 -mt-4">
+          <Link href="/">
           <Image
             src="/Logo-lg.svg"
             alt="Centre of Metaverse"
@@ -118,6 +120,7 @@ export function RegistrationForm() {
             height={200}
             className=" my-2 mx-auto md:hidden"
           />
+          </Link>
         </div>
 
         <form
