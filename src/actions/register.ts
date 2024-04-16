@@ -61,7 +61,7 @@ export const register = async (data: FormValues) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(registrationData),
+      body: JSON.stringify({...registrationData,time:new Date().toLocaleString()}),
     });
 
     // Send email
@@ -70,7 +70,11 @@ export const register = async (data: FormValues) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(registrationData),
+      body: JSON.stringify({
+        to: data.email,
+        subject: "Registration successful",
+        html:`<h1>Registration successful</h1>`,
+      }),
     });
 
     return {
