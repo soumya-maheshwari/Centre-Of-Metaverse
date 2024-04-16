@@ -78,7 +78,7 @@ export function RegistrationForm() {
 
   return (
     <section className="min-h-screen flex">
-      <div className="bg-black w-1/3 h-full p-8 hidden md:block">
+      <div className="bg-black w-1/3 h-full p-8 hidden md:block fixed">
         <Image
           src="/Logo-lg.svg"
           alt="Centre of Metaverse"
@@ -109,7 +109,7 @@ export function RegistrationForm() {
           <source src="/vids/meta.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:w-3/4 w-full">
+      <div className="bg-white md:px-8 py-4 mx-auto leading-10 md:ml-[33.34%] w-full">
         <div className="bg-black py-3 md:py-0 -mt-4">
           <Image
             src="/Logo-lg.svg"

@@ -23,9 +23,6 @@ const Page = () => {
           pauseOnHover
         />
         <RegistrationForm />
-        <div className="-mt-10">
-          <Footer />
-        </div>
       </main>
     </>
   );
